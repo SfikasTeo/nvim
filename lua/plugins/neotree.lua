@@ -1,12 +1,12 @@
 -- lua/plugins/neotree.lua
-require('neo-tree').setup({
+require('neo-tree').setup{
   close_if_last_window = true,
   popup_border_style = "rounded",
   enable_git_status = true,
   enable_diagnostics = true,
   default_component_configs = {
     container = {
-      enable_character_fade = true
+      enable_character_fade = true,
     },
     indent = {
       indent_size = 2,
@@ -87,7 +87,6 @@ require('neo-tree').setup({
       },
       -- Remove default
       ["s"] = "none",
-      ["o"] = "none",
       -- Add global
       ["P"] = "focus_preview",
       [",,"] = "cancel",
@@ -192,7 +191,7 @@ require('neo-tree').setup({
      },
     },
   },
-})
+}
 
 vim.api.nvim_set_keymap('n', '<C-n>', ':Neotree reveal<CR>', { noremap = true, silent = true })
 

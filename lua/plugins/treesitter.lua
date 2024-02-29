@@ -1,5 +1,6 @@
 -- lua/plugins/treesitter.lua
 require'nvim-treesitter.configs'.setup {
+  -- Parsers to install:
   ensure_installed = {
     -- Assembly
     'asm', 'disassembly',
@@ -12,7 +13,7 @@ require'nvim-treesitter.configs'.setup {
     'python', 'rust', 'zig',
     -- Programming adjacent
     'json', 'csv',
-    -- Web Technologies
+    -- Web
     'css', 'html', 'javascript',
     'scss', 'typescript', 'xml',
     -- Configuration files
@@ -22,6 +23,7 @@ require'nvim-treesitter.configs'.setup {
     'comment', 'diff',
     'git_config', 'git_rebase',
     'gitcommit', 'gitignore',
+    -- Notes
     'markdown', 'markdown_inline',
   },
 
@@ -68,7 +70,6 @@ require'nvim-treesitter.configs'.setup {
         ["il"] = "@loop.inner",         -- Select inside loop
         ["al"] = "@loop.outer",         -- Select around loop
         ["aa"] = "@assignment.outer",   -- Select assignment
-        ["ac"] = "@comment.outer",      -- Select Comment
         ["as"] = "@statement.outer",    -- Select Statement
       },
     },

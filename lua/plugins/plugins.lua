@@ -4,19 +4,22 @@
 return {
   -- Color scheme OneDark
   {
-      "olimorris/onedarkpro.nvim",
-      priority = 1000,
-      config = function()
-          require('plugins.onedarkpro')
-      end,
+    "olimorris/onedarkpro.nvim",
+    priority = 1000,
+    config = function()
+        require('plugins.onedarkpro')
+    end,
   },
   -- Telescope
   {
-      'nvim-telescope/telescope.nvim', branch = '0.1.x',
-      dependencies = {'nvim-lua/plenary.nvim'},
-      config = function()
-          require('plugins.telescope')
-      end,
+    'nvim-telescope/telescope.nvim', branch = '0.1.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-ui-select.nvim',
+    },
+    config = function()
+        require('plugins.telescope')
+    end,
   },
   -- Tree-sitter
   {
@@ -42,6 +45,7 @@ return {
       require('plugins.neotree')
     end,
   },
+  -- lua-line
   {
     'nvim-lualine/lualine.nvim',
     dependencies = {
@@ -50,6 +54,27 @@ return {
     config = function()
       require('plugins.lualine')
     end,
-  }
+  },
+  -- Mason
+  {
+    "williamboman/mason.nvim",
+    config = function()
+      require('plugins.mason')
+    end,
+  },
+  -- Mason LSP Config
+  {
+    "williamboman/mason-lspconfig.nvim",
+    config = function()
+      require('plugins.mason-lspconfig')
+    end,
+  },
+  -- LSP Config
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require('plugins.lspconfig')
+    end,
+  },
 }
 

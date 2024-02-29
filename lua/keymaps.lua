@@ -4,7 +4,6 @@
 
 -- Set Custom Keymaps
 local set = vim.keymap.set
-
 local default_set = { noremap = true, silent = true }
 local allow_remap = { noremap = false, silent = true }
 
@@ -15,7 +14,7 @@ local function map(modes, lhs, rhs, opts)
     end
 end
 
--- Unmap Space & Set it as Leader
+-- Unmap Space & Set it as leader
 set('n', '<Space>', '<Nop>', default_set)
 vim.g.mapleader = ' '
 
@@ -39,10 +38,10 @@ map('nvo', 'ge', 'G', default_set)
 map('nvo', 'gl', '$', default_set)
 map('nvo', 'gm', '%', default_set)
 
--- Cut with Leader + key
-map('nv', '<Leader>d', 'd', default_set)
-map('nv', '<Leader>x', 'x', default_set)
-map('nv', '<Leader>D', 'D', default_set)
+-- Cut with leader + key
+map('nv', '<leader>d', 'd', default_set)
+map('nv', '<leader>x', 'x', default_set)
+map('nv', '<leader>D', 'D', default_set)
 
 -- Move around split windows with leader + hjkl
 set('n', '<C-h>', '<C-w>h', default_set)
@@ -51,14 +50,14 @@ set('n', '<C-k>', '<C-w>k', default_set)
 set('n', '<C-l>', '<C-w>l', default_set)
 
 -- Resize windows with leader + r followed by hjkl
-set('n', '<Leader><C-h>', '10<C-w><', default_set)
-set('n', '<Leader><C-j>', '10<C-w>-', default_set)
-set('n', '<Leader><C-k>', '10<C-w>+', default_set)
-set('n', '<Leader><C-l>', '10<C-w>>', default_set)
+set('n', '<leader><C-h>', '10<C-w><', default_set)
+set('n', '<leader><C-j>', '10<C-w>-', default_set)
+set('n', '<leader><C-k>', '10<C-w>+', default_set)
+set('n', '<leader><C-l>', '10<C-w>>', default_set)
 
 -- Split a terminal
-map('nvo', '<Leader><C-v>', ':40vsplit | terminal<CR>', default_set)
-map('nvo', '<Leader><C-s>', ':20split | terminal<CR>', default_set)
+map('nvo', '<leader><C-v>', ':40vsplit | terminal<CR>', default_set)
+map('nvo', '<leader><C-s>', ':20split | terminal<CR>', default_set)
 
 -- Terminal Mode
 set('t', ',,', '<C-\\><C-n>', default_set)

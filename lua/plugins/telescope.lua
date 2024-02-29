@@ -1,7 +1,6 @@
 -- lua/plugins/telescope.lua
 local telescope = require('telescope')
 local builtin = require('telescope.builtin')
-local builtin = require('telescope.builtin')
 local actions = require('telescope.actions')
 local action_state = require('telescope.actions.state')
 
@@ -53,6 +52,11 @@ telescope.setup{
      },
     },
   },
+  extensions = {
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown{}
+    },
+  },
 }
 
 -- Set telescope specific keybindings
@@ -65,24 +69,22 @@ set('n', '<C-f>G', builtin.live_grep, default_set)                   -- Grep CWD
 set('n', '<C-f>h', builtin.highlights, default_set)                  -- Find Help Pages
 set('n', '<C-f>H', builtin.help_tags, default_set)                   -- Find Help Pages
 set('n', '<C-f>c', builtin.commands, default_set)                    -- Access Commands
-set('n', '<C-f>r', builtin.registers, default_set)                   -- Access Registers
+set('n', '<C-f>R', builtin.registers, default_set)                   -- Access Registers
 set('n', '<C-f>M', builtin.man_pages, default_set)                   -- Find man pages
 set('n', '<C-f>l', builtin.loclist, default_set)                     -- List Location list
 set('n', '<C-f>j', builtin.jumplist, default_set)                    -- List Jump list
 set('n', '<C-f>q', builtin.quickfix, default_set)                    -- Access commands
 set('n', '<C-f>s', builtin.spell_suggest, default_set)               -- List spell suggestions
 set('n', '<C-f>k', builtin.keymaps, default_set)                     -- List keymaps
-set('n', '<C-f>i', builtin.current_buffer_fuzzy_find, default_set)   -- Find inside buffer
 set('n', '<C-f>m', builtin.marks, default_set)                       -- List Marks
+set('n', '<C-f>d', builtin.diagnostics, default_set)                 -- List Diagnostics
 set('n', '<C-f>t', builtin.treesitter, default_set)                  -- Lists tree-sitter objects
 
 -- Lsp Bindings
-set('n', '<C-g>r', builtin.lsp_references, default_set)              -- Goto Symbol references
-set('n', '<C-g>i', builtin.lsp_implementations, default_set)         -- Goto Symbol implementation
-set('n', '<C-g>d', builtin.lsp_definitions, default_set) 	           -- Goto Symbol definition
-set('n', '<C-g>t', builtin.lsp_type_definitions, default_set)        -- Goto Symbol Type definition
-set('n', '<C-g>I', builtin.lsp_incoming_calls, default_set)          -- Goto Symbol incoming calls
-set('n', '<C-g>O', builtin.lsp_outgoing_calls, default_set)          -- Goto Symbol outgoing calls
+set('n', 'gr', builtin.lsp_references, default_set)                  -- Goto Symbol references
+set('n', '<C-f>r', builtin.lsp_references, default_set)              -- Find references
+set('n', '<C-f>I', builtin.lsp_incoming_calls, default_set)          -- Goto Symbol incoming calls
+set('n', '<C-f>O', builtin.lsp_outgoing_calls, default_set)          -- Goto Symbol outgoing calls
 
 -- Advanced Bindings
 
@@ -151,4 +153,7 @@ end
 
 set('n', '<C-f>g', custom_live_grep, default_set)          -- Grep Git Repo or CWD
 set('n', '<C-f>f', custom_find_files, default_set)         -- Find Files in Git Repo or CWD
+
+-- Load extensions
+telescope.load_extension("ui-select")
 

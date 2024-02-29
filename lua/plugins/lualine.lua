@@ -39,6 +39,5 @@ require('lualine').setup {
   inactive_winbar = {},
   extensions = {
     'neo-tree',
-    'telescope',
   },
 }
