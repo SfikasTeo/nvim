@@ -10,6 +10,8 @@ return {
 			require("plugins.onedarkpro")
 		end,
 	},
+	--
+	-- Core Utilities
 	-- Telescope
 	{
 		"nvim-telescope/telescope.nvim",
@@ -56,6 +58,8 @@ return {
 			require("plugins.lualine")
 		end,
 	},
+	--
+	-- LSPs - Formatters - Linters - DAPs
 	-- Mason
 	{
 		"williamboman/mason.nvim",
@@ -82,6 +86,35 @@ return {
 		"nvimtools/none-ls.nvim",
 		config = function()
 			require("plugins.none-ls")
+		end,
+	},
+	--
+	-- Completions
+	-- nvim-cmp
+	{
+		-- Completion Engine
+		"hrsh7th/nvim-cmp",
+		dependencies = {
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			-- Connects cmp to LSP
+			"hrsh7th/cmp-nvim-lsp",
+			{
+				-- Snipset Engine
+				"L3MON4D3/LuaSnip",
+				dependencies = {
+					-- Connects cmp with sources
+					"saadparwaiz1/cmp_luasnip",
+					-- Snipset Provider
+					"rafamadriz/friendly-snippets",
+				},
+				config = function()
+					require("plugins.luasnip")
+				end,
+			},
+		},
+		config = function()
+			require("plugins.nvim-cmp")
 		end,
 	},
 }

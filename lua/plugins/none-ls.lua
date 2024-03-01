@@ -3,20 +3,19 @@ local null = require("null-ls")
 local formatter = null.builtins.formatting
 local diagnostics = null.builtins.diagnostics
 
+-- LSP intergration to Linters-Formatters
 null.setup({
-	-- Specify Linters-Formatters-diagnostics
-	-- Wraps them into an LSP
 	sources = {
-        -- Bash
-        formatter.shellharden,
-        -- Lua
+		-- Bash
+		formatter.shellharden,
+		-- Lua
 		formatter.stylua,
-        -- Web
+		-- Web
 		formatter.prettier,
-        -- Python
-        formatter.isort,
-        formatter.black,
-        diagnostics.mypy,
+		-- Python
+		formatter.isort,
+		formatter.black,
+		diagnostics.mypy,
 	},
 })
 

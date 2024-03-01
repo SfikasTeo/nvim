@@ -45,6 +45,7 @@ telescope.setup({
 			},
 			n = { -- normal_mode mappings
 				[",,"] = actions.close,
+				["<C-c>"] = actions.close,
 				["<C-v>"] = actions.select_vertical,
 				["<C-s>"] = actions.select_horizontal,
 				["<C-q>"] = actions.send_to_qflist,
@@ -74,7 +75,6 @@ set("n", "<C-f>M", builtin.man_pages, default_set) -- Find man pages
 set("n", "<C-f>l", builtin.loclist, default_set) -- List Location list
 set("n", "<C-f>j", builtin.jumplist, default_set) -- List Jump list
 set("n", "<C-f>q", builtin.quickfix, default_set) -- Access commands
-set("n", "<C-f>s", builtin.spell_suggest, default_set) -- List spell suggestions
 set("n", "<C-f>k", builtin.keymaps, default_set) -- List keymaps
 set("n", "<C-f>m", builtin.marks, default_set) -- List Marks
 set("n", "<C-f>d", builtin.diagnostics, default_set) -- List Diagnostics

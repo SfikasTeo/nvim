@@ -9,11 +9,11 @@ onedarkpro.setup({
 	},
 	-- Change Options
 	options = {
-		cursorline = true, -- Use cursorline highlighting?
-		transparency = false, -- Use a transparent background?
-		terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
-		lualine_transparency = false, -- Center bar transparency?
-		highlight_inactive_windows = false, -- When the window is out of focus, change the normal background?
+		cursorline = true,
+		transparency = false,
+		terminal_colors = true,
+		lualine_transparency = false,
+		highlight_inactive_windows = false,
 	},
 })
 

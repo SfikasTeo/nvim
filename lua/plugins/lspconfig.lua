@@ -23,13 +23,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		-- Buffer local mappings.
 		local opts = { buffer = ev.buf }
-		set("n", "K", vim.lsp.buf.hover, opts)
-		set("n", "gD", vim.lsp.buf.declaration, opts)
+		set("n", "gk", vim.lsp.buf.hover, opts)
+		set("n", "gK", vim.lsp.buf.signature_help, opts)
 		set("n", "gd", vim.lsp.buf.definition, opts)
+		set("n", "gD", vim.lsp.buf.declaration, opts)
 		set("n", "gi", vim.lsp.buf.implementation, opts)
-		set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-		set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+		set("n", "RR", vim.lsp.buf.rename, opts)
+        -- Intergrate with telescope
 		set({ "n", "v" }, "<C-f>a", vim.lsp.buf.code_action, opts)
+        -- LSP based formatting
 		set("n", "<leader>F", function()
 			vim.lsp.buf.format({ async = true })
 		end, opts)

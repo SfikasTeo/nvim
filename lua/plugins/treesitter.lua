@@ -84,18 +84,14 @@ require("nvim-treesitter.configs").setup({
 			lookahead = true,
 			selection_modes = {},
 			keymaps = {
-				["if"] = "@function.inner", -- Select around function
-				["af"] = "@function.outer", -- Select inside function
-				["iC"] = "@class.inner", -- Select inside Class
-				["aC"] = "@class.outer", -- Select whole Class
-				["ib"] = "@block.inner", -- Select around block
-				["ab"] = "@block.outer", -- Select inside block
-				["ic"] = "@conditional.inner", -- Select inside conditional
-				["ac"] = "@conditional.outer", -- Select around conditional
-				["il"] = "@loop.inner", -- Select inside loop
-				["al"] = "@loop.outer", -- Select around loop
-				["aa"] = "@assignment.outer", -- Select assignment
-				["as"] = "@statement.outer", -- Select Statement
+				["if"] = "@function.inner",
+				["af"] = "@function.outer",
+				["iC"] = "@class.inner",
+				["aC"] = "@class.outer",
+			    ["ic"] = "@conditional.inner",
+				["ac"] = "@conditional.outer",
+				["il"] = "@loop.inner",
+				["al"] = "@loop.outer",
 			},
 		},
 		lsp_interop = {
