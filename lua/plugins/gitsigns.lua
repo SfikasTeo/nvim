@@ -18,12 +18,11 @@ require("gitsigns").setup({
 	},
 	auto_attach = true,
 	attach_to_untracked = false,
-	-- Toggle with `:Gitsigns toggle_current_line_blame`
 	current_line_blame = false,
 	current_line_blame_opts = {
 		virt_text = true,
 		virt_text_pos = "eol",
-		delay = 1000,
+		delay = 10,
 		ignore_whitespace = false,
 		virt_text_priority = 100,
 	},
@@ -74,9 +73,9 @@ require("gitsigns").setup({
 		end, { expr = true })
 
 		-- Actions
-		map("n", "<C-g>s", gs.stage_hunk)
+		map("n", "<C-g>h", gs.stage_hunk)
 		map("n", "<C-g>r", gs.reset_hunk)
-		map("n", "<C-g>S", gs.stage_buffer)
+		map("n", "<C-g>s", gs.stage_buffer)
 		map("n", "<C-g>R", gs.reset_buffer)
 		map("n", "<C-g>b", gs.toggle_current_line_blame)
 		map("n", "<C-g>d", gs.diffthis)
