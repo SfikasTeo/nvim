@@ -10,7 +10,7 @@ vim.g.VM_silent_exit = 1
 -- Line Numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = "yes"
 
 -- Cursor
 vim.opt.cursorline = true
@@ -28,7 +28,7 @@ vim.opt.splitright = true
 vim.opt.showmode = true
 
 -- Indentation
-local indent = 2
+local indent = 4
 vim.opt.wrap = false
 vim.opt.expandtab = true
 vim.opt.autoindent = true
@@ -47,9 +47,8 @@ vim.opt.smartcase = true
 vim.opt.completeopt = { "menu", "noselect" }
 
 -- Behavior
-vim.opt.clipboard:append 'unnamedplus'
+vim.opt.clipboard:append("unnamedplus")
 vim.opt.termguicolors = true
 vim.opt.swapfile = false
 vim.opt.undofile = true
 vim.opt.hidden = false
-

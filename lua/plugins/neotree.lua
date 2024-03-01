@@ -87,6 +87,7 @@ require('neo-tree').setup{
       },
       -- Remove default
       ["s"] = "none",
+      ["d"] = "none",
       -- Add global
       ["P"] = "focus_preview",
       [",,"] = "cancel",
@@ -94,7 +95,7 @@ require('neo-tree').setup{
       ["<C-b>"] = "navigate_up",
       ["<C-s>"] = "open_split",
       ["<C-v>"] = "open_vsplit",
-      ["o"] = "open",
+      ["<C-o>"] = "open",
       ["t"] = "toggle_node",
       ["T"] = "open_tabnew",
       ["c"] = "close_node",
@@ -119,19 +120,19 @@ require('neo-tree').setup{
       ["i"] = "show_file_details",
       ["."] = "set_root",
       ["m"] = "move",
-      ["O"] = { "show_help",
+      ["o"] = { "show_help",
         nowait=false, config = {
           title = "Order by",
-          prefix_key = "O"
+          prefix_key = "o"
         }
       },
-      ["Oc"] = "order_by_created",
-      ["Od"] = "order_by_diagnostics",
-      ["Og"] = "order_by_git_status",
-      ["Om"] = "order_by_modified",
-      ["On"] = "order_by_name",
-      ["Os"] = "order_by_size",
-      ["Ot"] = "order_by_type",
+      ["oc"] = "order_by_created",
+      ["od"] = "order_by_diagnostics",
+      ["og"] = "order_by_git_status",
+      ["om"] = "order_by_modified",
+      ["on"] = "order_by_name",
+      ["os"] = "order_by_size",
+      ["ot"] = "order_by_type",
     },
   },
   filesystem = {
