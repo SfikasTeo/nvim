@@ -19,7 +19,7 @@ set("n", "<Space>", "<Nop>", default_set)
 vim.g.mapleader = " "
 
 -- quality of life:
-set("n", "<Space>", "<Cmd>noh<CR>", default_set)
+set("n", "<leader>h", "<Cmd>noh<CR>", default_set)
 map("nvoi", ",,", "<Esc>", default_set)
 set("i", "jj", "<Esc>", default_set)
 
