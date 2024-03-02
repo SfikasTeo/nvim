@@ -20,8 +20,21 @@ telescope.setup({
 				"!**/.git/*",
 			},
 		},
+        diagnostics = {
+            layout_strategy = "vertical",
+        },
 	},
 	defaults = {
+		layout_config = {
+			width = 0.9,
+			height = 0.9,
+			horizontal = {
+				preview_width = 0.6,
+			},
+			vertical = {
+				preview_height = 0.6,
+			},
+		},
 		vimgrep_arguments = {
 			"rg",
 			"--color=never",
@@ -38,6 +51,8 @@ telescope.setup({
 			i = { -- insert_mode mappings
 				[",,"] = { "<esc>", type = "command" },
 				["jj"] = { "<esc>", type = "command" },
+				["<C-j>"] = actions.preview_scrolling_down,
+				["<C-k>"] = actions.preview_scrolling_up,
 				["<C-v>"] = actions.select_vertical,
 				["<C-s>"] = actions.select_horizontal,
 				["<C-q>"] = actions.send_to_qflist,
@@ -45,6 +60,8 @@ telescope.setup({
 			},
 			n = { -- normal_mode mappings
 				[",,"] = actions.close,
+				["<C-j>"] = actions.preview_scrolling_down,
+				["<C-k>"] = actions.preview_scrolling_up,
 				["<C-c>"] = actions.close,
 				["<C-v>"] = actions.select_vertical,
 				["<C-s>"] = actions.select_horizontal,
@@ -110,11 +127,6 @@ local function path_to_clipboard(prompt_bufnr)
 end
 
 -- Customize live_grep & find_files dynamically
-local function is_inside_git_repo()
-	local inside_git_repo = vim.fn.systemlist("git rev-parse --is-inside-work-tree")[1]
-	return inside_git_repo == "true"
-end
-
 local function custom_live_grep()
 	local opts = {}
 
