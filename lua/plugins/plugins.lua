@@ -145,18 +145,4 @@ return {
 			require("plugins.gitsigns")
 		end,
 	},
-	{
-		"kdheepak/lazygit.nvim",
-		cmd = {
-			"LazyGit",
-			"LazyGitConfig",
-			"LazyGitCurrentFile",
-			"LazyGitFilter",
-			"LazyGitFilterCurrentFile",
-		},
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		vim.api.nvim_set_keymap("n", "<C-g>l", ":LazyGit<CR>", { noremap = true, silent = true }),
-	},
 }
