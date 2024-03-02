@@ -1,6 +1,6 @@
 -- lua/plugins/neotree.lua
 require("neo-tree").setup({
-	close_if_last_window = true,
+	close_if_last_window = false,
 	popup_border_style = "rounded",
 	enable_git_status = true,
 	enable_diagnostics = true,
@@ -103,7 +103,7 @@ require("neo-tree").setup({
 			["R"] = "refresh",
 			["a"] = {
 				"show_help",
-				nowait = false,
+				nowait = true,
 				config = {
 					title = "Add",
 					prefix_key = "a",

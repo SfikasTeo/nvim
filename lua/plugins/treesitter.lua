@@ -92,6 +92,14 @@ require("nvim-treesitter.configs").setup({
 				["ac"] = "@conditional.outer",
 				["il"] = "@loop.inner",
 				["al"] = "@loop.outer",
+				["ip"] = "@paragraph.inner",
+				["ap"] = "@paragraph.outer",
+				["ib"] = "@block.inner",
+				["ab"] = "@block.outer",
+                ["ia"] = "@assignment.inner",
+                ["aa"] = "@assignment.outer",
+                ["aah"] = "@assignment.lhs",
+                ["aal"] = "@assignment.rhs"
 			},
 		},
 		lsp_interop = {

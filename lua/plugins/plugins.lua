@@ -65,6 +65,13 @@ return {
 			require("plugins.autopairs")
 		end,
 	},
+    -- Floating Terminal
+    {
+        "devkvlt/floaty.nvim",
+        config = function()
+            require("plugins.floaty")
+        end,
+    },
 	--
 	-- LSPs - Formatters - Linters - DAPs
 	-- Mason
