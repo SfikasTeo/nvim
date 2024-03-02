@@ -20,3 +20,4 @@ null.setup({
 })
 
 vim.keymap.set("n", "<leader>F", vim.lsp.buf.format, {})
+
