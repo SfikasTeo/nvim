@@ -36,13 +36,14 @@ cmp.setup({
         end,
     },
     mapping = cmp.mapping.preset.insert({
+        ["<Tab>"] = cmp.mapping.confirm({ select = false }),
+        ["<CR>"] = cmp.mapping.confirm({ select = false }),
         ["<C-j>"] = cmp.mapping.select_next_item(),
         ["<C-k>"] = cmp.mapping.select_prev_item(),
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-n>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.abort(),
-        ["<CR>"] = cmp.mapping.confirm({ select = false }),
     }),
     sources = cmp.config.sources({
         { name = "nvim_lsp" },
@@ -60,17 +61,24 @@ cmp.setup({
     },
 })
 
--- Use buffer source for `/` (searching) and `:` (commands)
-cmp.setup.cmdline("/", {
-    sources = {
-        { name = "buffer" },
-    },
+cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline({
+        ['<C-j>'] = { c = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }) },
+        ['<C-k>'] = { c = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }) },
+    }),
+    sources = cmp.config.sources({
+        { name = 'path' },
+        { name = 'cmdline' }
+    }),
 })
 
-cmp.setup.cmdline(":", {
-    sources = cmp.config.sources({
-        { name = "path" },
-        { name = "cmdline" },
+cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline({
+        ['<C-j>'] = { c = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }) },
+        ['<C-k>'] = { c = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }) },
     }),
+    sources = {
+        { name = 'buffer' }
+    },
 })
 

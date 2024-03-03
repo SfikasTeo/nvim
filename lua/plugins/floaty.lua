@@ -11,4 +11,4 @@ require("floaty").setup({
 
 local set = vim.keymap.set
 set({ 'n', 't' }, '<C-t>', floaty.toggle, { silent = true })
-set('t', '<Esc>', floaty.kill, { silent = true })
+

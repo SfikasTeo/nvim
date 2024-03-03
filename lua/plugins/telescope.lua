@@ -53,20 +53,20 @@ telescope.setup({
 				["jj"] = { "<esc>", type = "command" },
 				["<C-j>"] = actions.preview_scrolling_down,
 				["<C-k>"] = actions.preview_scrolling_up,
-				["<C-v>"] = actions.select_vertical,
-				["<C-;>"] = actions.select_horizontal,
+				["<C-w>v"] = actions.select_vertical,
+				["<C-w>s"] = actions.select_horizontal,
+				["<C-w>t"] = actions.select_tab,
 				["<C-q>"] = actions.send_to_qflist,
-				["<C-t>"] = actions.select_tab,
 			},
 			n = { -- normal_mode mappings
 				[",,"] = actions.close,
 				["<C-j>"] = actions.preview_scrolling_down,
 				["<C-k>"] = actions.preview_scrolling_up,
 				["<C-c>"] = actions.close,
-				["<C-v>"] = actions.select_vertical,
-				["<C-;>"] = actions.select_horizontal,
+				["<C-w>v"] = actions.select_vertical,
+				["<C-w>s"] = actions.select_horizontal,
+				["<C-w>t"] = actions.select_tab,
 				["<C-q>"] = actions.send_to_qflist,
-				["<C-t>"] = actions.select_tab,
 			},
 		},
 	},
@@ -82,7 +82,7 @@ telescope.setup({
 -- Vim pickers
 set("n", "<C-f>b", builtin.buffers, default_set) -- Buffers
 set("n", "<C-f>o", builtin.oldfiles, default_set) -- Recently opened Files
-set("n", "<C-f>F", builtin.find_files, default_set) -- Find Files in CWD
+set("n", "<C-f>E", builtin.find_files, default_set) -- Find Files in CWD
 set("n", "<C-f>G", builtin.live_grep, default_set) -- Grep CWD
 set("n", "<C-f>h", builtin.highlights, default_set) -- Find Help Pages
 set("n", "<C-f>H", builtin.help_tags, default_set) -- Find Help Pages
@@ -168,7 +168,7 @@ local function custom_find_files()
 end
 
 set("n", "<C-f>g", custom_live_grep, default_set) -- Grep Git Repo or CWD
-set("n", "<C-f>f", custom_find_files, default_set) -- Find Files in Git Repo or CWD
+set("n", "<C-f>e", custom_find_files, default_set) -- Find Files in Git Repo or CWD
 
 -- Load extensions
 telescope.load_extension("ui-select")

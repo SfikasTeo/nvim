@@ -36,8 +36,7 @@ map("nvo", "gh", "0", opts)
 map("nvo", "gl", "$", opts)
 
 -- Navigation to leader + g-me
-map("nvo", "<leader>gm", "%", opts)
-map("nvo", "<leader>ge", "G", opts)
+map("nvo", "gm", "%", opts)
 
 -- Cut with leader + key
 map("nv", "<leader>d", "d", opts)
@@ -57,8 +56,8 @@ set("n", "<leader><C-k>", "10<C-w>+", opts)
 set("n", "<leader><C-l>", "10<C-w>>", opts)
 
 -- Split a terminal
-map("nvo", "<leader><C-v>", ":40vsplit | terminal<CR>", opts)
-map("nvo", "<leader><C-;>", ":20split | terminal<CR>", opts)
+map("nvo", "<C-w>V", ":40vsplit | terminal<CR>", opts)
+map("nvo", "<C-w>S", ":20split | terminal<CR>", opts)
 
 -- Terminal Mode
 set("t", ",,", "<C-\\><C-n>", opts)

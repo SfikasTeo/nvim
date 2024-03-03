@@ -14,9 +14,8 @@ null.setup({
 		-- Web
 		formatter.prettier,
 		-- Python
-		formatter.isort,
-		formatter.black,
-		diagnostics.mypy,
+		--formatter.isort
+		--diagnostics.mypy,
 	},
 })
 
