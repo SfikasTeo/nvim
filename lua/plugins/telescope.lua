@@ -54,7 +54,7 @@ telescope.setup({
 				["<C-j>"] = actions.preview_scrolling_down,
 				["<C-k>"] = actions.preview_scrolling_up,
 				["<C-v>"] = actions.select_vertical,
-				["<C-s>"] = actions.select_horizontal,
+				["<C-;>"] = actions.select_horizontal,
 				["<C-q>"] = actions.send_to_qflist,
 				["<C-t>"] = actions.select_tab,
 			},
@@ -64,7 +64,7 @@ telescope.setup({
 				["<C-k>"] = actions.preview_scrolling_up,
 				["<C-c>"] = actions.close,
 				["<C-v>"] = actions.select_vertical,
-				["<C-s>"] = actions.select_horizontal,
+				["<C-;>"] = actions.select_horizontal,
 				["<C-q>"] = actions.send_to_qflist,
 				["<C-t>"] = actions.select_tab,
 			},
@@ -172,3 +172,4 @@ set("n", "<C-f>f", custom_find_files, default_set) -- Find Files in Git Repo or 
 
 -- Load extensions
 telescope.load_extension("ui-select")
+

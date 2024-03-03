@@ -8,6 +8,7 @@ null.setup({
 	sources = {
 		-- Bash
 		formatter.shellharden,
+        formatter.shfmt,
 		-- Lua
 		formatter.stylua,
 		-- Web

@@ -92,10 +92,11 @@ require("neo-tree").setup({
 			["P"] = "focus_preview",
 			[",,"] = "cancel",
 			["<C-c>"] = "close_window",
-			["<C-b>"] = "navigate_up",
-			["<C-s>"] = "open_split",
+			["<C-n>"] = "close_window",
+			["<C-;>"] = "open_split",
 			["<C-v>"] = "open_vsplit",
 			["<C-o>"] = "open",
+			["b"] = "navigate_up",
 			["t"] = "toggle_node",
 			["T"] = "open_tabnew",
 			["c"] = "close_node",
@@ -197,3 +198,4 @@ require("neo-tree").setup({
 })
 
 vim.api.nvim_set_keymap("n", "<C-n>", ":Neotree reveal<CR>", { noremap = true, silent = true })
+

@@ -4,60 +4,62 @@
 
 -- Set Custom Keymaps
 local set = vim.keymap.set
-local default_set = { noremap = true, silent = true }
-local allow_remap = { noremap = false, silent = true }
+local opts = { noremap = true, silent = true }
 
 -- Maps instruction to multiple modes
-local function map(modes, lhs, rhs, opts)
+local function map(modes, lhs, rhs, options)
 	for i = 1, #modes do
-		vim.keymap.set(modes:sub(i, i), lhs, rhs, opts)
+		vim.keymap.set(modes:sub(i, i), lhs, rhs, options)
 	end
 end
 
 -- Unmap Space & Set it as leader
-set("n", "<Space>", "<Nop>", default_set)
+set("n", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
 -- quality of life:
-set("n", "<leader>h", "<Cmd>noh<CR>", default_set)
-map("nvoi", ",,", "<Esc>", default_set)
-set("i", "jj", "<Esc>", default_set)
+set("n", "<leader>h", "<Cmd>noh<CR>", opts)
+map("nvoi", ",,", "<Esc>", opts)
+set("i", "jj", "<Esc>", opts)
 
 -- Keep cursor in the middle of the screen
-set("n", "<C-u>", "<C-u>zz", default_set)
-set("n", "<C-d>", "<C-d>zz", default_set)
+set("n", "<C-u>", "<C-u>zz", opts)
+set("n", "<C-d>", "<C-d>zz", opts)
 
 -- Delete without yanking
-map("nv", "d", '"_d', default_set)
-map("nv", "x", '"_x', default_set)
-map("nv", "D", '"_D', default_set)
+map("nv", "d", '"_d', opts)
+map("nv", "x", '"_x', opts)
+map("nv", "D", '"_D', opts)
 
 -- Add Navigating motions with g+helm
-map("nvo", "gh", "0", default_set)
-map("nvo", "ge", "G", default_set)
-map("nvo", "gl", "$", default_set)
-map("nvo", "gm", "%", default_set)
+map("nvo", "gh", "0", opts)
+map("nvo", "gl", "$", opts)
+
+-- Navigation to leader + g-me
+map("nvo", "<leader>gm", "%", opts)
+map("nvo", "<leader>ge", "G", opts)
 
 -- Cut with leader + key
-map("nv", "<leader>d", "d", default_set)
-map("nv", "<leader>x", "x", default_set)
-map("nv", "<leader>D", "D", default_set)
+map("nv", "<leader>d", "d", opts)
+map("nv", "<leader>x", "x", opts)
+map("nv", "<leader>D", "D", opts)
 
--- Move around split windows with leader + hjkl
-set("n", "<C-h>", "<C-w>h", default_set)
-set("n", "<C-j>", "<C-w>j", default_set)
-set("n", "<C-k>", "<C-w>k", default_set)
-set("n", "<C-l>", "<C-w>l", default_set)
+-- Move around split windows with C-<hjkl>
+set("n", "<C-h>", "<C-w>h", opts)
+set("n", "<C-j>", "<C-w>j", opts)
+set("n", "<C-k>", "<C-w>k", opts)
+set("n", "<C-l>", "<C-w>l", opts)
 
--- Resize windows with leader + r followed by hjkl
-set("n", "<leader><C-h>", "10<C-w><", default_set)
-set("n", "<leader><C-j>", "10<C-w>-", default_set)
-set("n", "<leader><C-k>", "10<C-w>+", default_set)
-set("n", "<leader><C-l>", "10<C-w>>", default_set)
+-- Resize split windows with leader + C-<hjkl>
+set("n", "<leader><C-h>", "10<C-w><", opts)
+set("n", "<leader><C-j>", "10<C-w>-", opts)
+set("n", "<leader><C-k>", "10<C-w>+", opts)
+set("n", "<leader><C-l>", "10<C-w>>", opts)
 
 -- Split a terminal
-map("nvo", "<leader><C-v>", ":40vsplit | terminal<CR>", default_set)
-map("nvo", "<leader><C-s>", ":20split | terminal<CR>", default_set)
+map("nvo", "<leader><C-v>", ":40vsplit | terminal<CR>", opts)
+map("nvo", "<leader><C-;>", ":20split | terminal<CR>", opts)
 
 -- Terminal Mode
-set("t", ",,", "<C-\\><C-n>", default_set)
+set("t", ",,", "<C-\\><C-n>", opts)
+

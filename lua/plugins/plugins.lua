@@ -62,16 +62,23 @@ return {
 	{
 		"windwp/nvim-autopairs",
 		config = function()
-			require("plugins.autopairs")
+			require("nvim-autopairs").setup({})
 		end,
 	},
-    -- Floating Terminal
-    {
-        "devkvlt/floaty.nvim",
-        config = function()
-            require("plugins.floaty")
-        end,
-    },
+	-- Floating Terminal
+	{
+		"devkvlt/floaty.nvim",
+		config = function()
+			require("plugins.floaty")
+		end,
+	},
+	{
+		"smoka7/hop.nvim",
+		tag = "v2.*",
+		config = function()
+			require("plugins.hop")
+		end,
+	},
 	--
 	-- LSPs - Formatters - Linters - DAPs
 	-- Mason
@@ -134,7 +141,6 @@ return {
 	-- Github Copilot
 	{
 		"github/copilot.vim",
-		config = function() end,
 	},
 	--
 	-- Git Integration
@@ -146,3 +152,4 @@ return {
 		end,
 	},
 }
+
