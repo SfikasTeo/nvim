@@ -13,9 +13,6 @@ null.setup({
 		formatter.stylua,
 		-- Web
 		formatter.prettier,
-		-- Python
-		--formatter.isort
-		--diagnostics.mypy,
 	},
 })
 
