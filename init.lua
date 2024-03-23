@@ -1,6 +1,7 @@
 ------------------------------------------------------------
 -- Nvim Configs
 ------------------------------------------------------------
+-- init.lua
 
 -- Setup Package Manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -30,4 +31,4 @@ require("lazy").setup(plugins, opts)
 
 -- Set the colorscheme version
 vim.cmd("colorscheme onedark")
--- vim.cmd("colorscheme onedark_dark")
+

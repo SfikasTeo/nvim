@@ -1,9 +1,9 @@
--- Set up plugins
-
 -- lua/plugins/plugins.lua
+
 return {
 	-- Color scheme OneDark
 	{
+        -- Needs to be loaded first
 		"olimorris/onedarkpro.nvim",
 		priority = 1000,
 		config = function()
@@ -50,6 +50,7 @@ return {
 	},
 	-- lua-line
 	{
+        -- Cannot be lazy loaded
 		"nvim-lualine/lualine.nvim",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
@@ -64,6 +65,7 @@ return {
 		config = function()
 			require("nvim-autopairs").setup({})
 		end,
+        event = "InsertEnter",
 	},
 	-- Floating Terminal
 	{
@@ -74,6 +76,7 @@ return {
 	},
     -- Leap Navigation
     {
+        -- lazy loaded by design
         "ggandor/leap.nvim",
         config = function()
             require('leap').add_default_mappings()

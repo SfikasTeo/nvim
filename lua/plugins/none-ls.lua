@@ -13,8 +13,13 @@ null.setup({
 		formatter.stylua,
 		-- Web
 		formatter.prettier,
+        -- Python
+        formatter.isort,
+        formatter.black,
+        diagnostics.mypy,
+        diagnostics.flake8,
 	},
 })
 
-vim.keymap.set("n", "<leader>F", vim.lsp.buf.format, {})
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, {})
 

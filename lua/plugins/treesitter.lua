@@ -98,8 +98,8 @@ require("nvim-treesitter.configs").setup({
 				["ab"] = "@block.outer",
                 ["ia"] = "@assignment.inner",
                 ["aa"] = "@assignment.outer",
-                ["aah"] = "@assignment.lhs",
-                ["aal"] = "@assignment.rhs"
+                ["aj"] = "@assignment.lhs",
+                ["ak"] = "@assignment.rhs"
 			},
 		},
 		lsp_interop = {
@@ -118,3 +118,4 @@ require("nvim-treesitter.configs").setup({
 		},
 	},
 })
+

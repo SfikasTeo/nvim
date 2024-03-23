@@ -56,8 +56,8 @@ set("n", "<leader><C-k>", "10<C-w>+", opts)
 set("n", "<leader><C-l>", "10<C-w>>", opts)
 
 -- Split a terminal
-map("nvo", "<C-w>V", ":40vsplit | terminal<CR>", opts)
-map("nvo", "<C-w>S", ":20split | terminal<CR>", opts)
+map("nvo", "<C-w><C-v>", ":40vsplit | terminal<CR>", opts)
+map("nvo", "<C-w><C-s>", ":20split | terminal<CR>", opts)
 
 -- Terminal Mode
 set("t", ",,", "<C-\\><C-n>", opts)
