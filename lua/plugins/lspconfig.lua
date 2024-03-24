@@ -39,25 +39,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
 		local opts = { buffer = ev.buf }
-		set("n", "<C-f>i", vim.lsp.buf.hover, opts)
+		set("n", "<C-f>h", vim.lsp.buf.hover, opts)
 		set("n", "<C-f>s", vim.lsp.buf.signature_help, opts)
-
-		-- inline with the default nvim mappings:
-		set("n", "gd", vim.lsp.buf.definition, opts)
-		set("n", "gD", vim.lsp.buf.declaration, opts)
-		set("n", "gi", vim.lsp.buf.implementation, opts)
-
-		-- Intergrate with telescope
-		set({ "n", "v" }, "<C-f>a", vim.lsp.buf.code_action, opts)
-
-		-- LSP based formatting
-		set("n", "<leader>f", function()
-			vim.lsp.buf.format({ async = true })
-		end, opts)
-		-- LSP based Refactoring
+		set("n", "<C-f>d", vim.lsp.buf.definition, opts)
+		set("n", "<C-f>D", vim.lsp.buf.declaration, opts)
+		set("n", "<C-f>i", vim.lsp.buf.implementation, opts)
 		set("n", "<leader>r", vim.lsp.buf.rename, opts)
 	end,
 })
+
+-- User Commands
 
 -- Add Workspace Folder Command
 vim.api.nvim_create_user_command("LspAddWorkspace", function()
@@ -73,4 +64,9 @@ end, { desc = "Remove workspace folder" })
 vim.api.nvim_create_user_command("LspListWorkspaces", function()
 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 end, { desc = "List all workspace folders" })
+
+-- Format Document
+vim.api.nvim_create_user_command("LspFormatDocument", function()
+    vim.lsp.buf.format({ async = true })
+end, { desc = "Format document" })
 

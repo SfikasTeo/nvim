@@ -5,9 +5,7 @@ local actions = require("telescope.actions")
 local action_state = require("telescope.actions.state")
 
 local set = vim.keymap.set
-
 local default_set = { noremap = true, silent = true }
-local allow_remap = { noremap = false, silent = true }
 
 telescope.setup({
 	pickers = {
@@ -51,22 +49,24 @@ telescope.setup({
 			i = { -- insert_mode mappings
 				[",,"] = { "<esc>", type = "command" },
 				["jj"] = { "<esc>", type = "command" },
+				["<C-q>"] = actions.send_to_qflist,
 				["<C-j>"] = actions.move_selection_next,
                 ["<C-k>"] = actions.move_selection_previous,
-				["<C-v>"] = actions.select_vertical,
-				["<C-s>"] = actions.select_horizontal,
-				["<C-t>"] = actions.select_tab,
-				["<C-q>"] = actions.send_to_qflist,
+				["<C-w>v"] = actions.select_vertical,
+				["<C-w>s"] = actions.select_horizontal,
+				["<C-w>t"] = actions.select_tab,
+                ["<C-w>o"] = actions.select_default,
 			},
 			n = { -- normal_mode mappings
 				[",,"] = actions.close,
+                ["<C-q>"] = actions.send_to_qflist,
 				["<C-j>"] = actions.move_selection_next,
                 ["<C-k>"] = actions.move_selection_previous,
 				["<C-c>"] = actions.close,
-				["<C-v>"] = actions.select_vertical,
-				["<C-s>"] = actions.select_horizontal,
-				["<C-t>"] = actions.select_tab,
-				["<C-q>"] = actions.send_to_qflist,
+				["<C-w>v"] = actions.select_vertical,
+				["<C-w>s"] = actions.select_horizontal,
+				["<C-w>t"] = actions.select_tab,
+                ["<C-w>o"] = actions.select_default,
 			},
 		},
 	},
@@ -80,28 +80,23 @@ telescope.setup({
 -- Set telescope specific keybindings
 
 -- Vim pickers
-set("n", "<C-f>b", builtin.buffers, default_set) -- Buffers
-set("n", "<C-f>o", builtin.oldfiles, default_set) -- Recently opened Files
-set("n", "<C-f>E", builtin.find_files, default_set) -- Find Files in CWD
-set("n", "<C-f>G", builtin.live_grep, default_set) -- Grep CWD
-set("n", "<C-f>h", builtin.highlights, default_set) -- Find Help Pages
-set("n", "<C-f>H", builtin.help_tags, default_set) -- Find Help Pages
-set("n", "<C-f>c", builtin.commands, default_set) -- Access Commands
-set("n", "<C-f>R", builtin.registers, default_set) -- Access Registers
-set("n", "<C-f>M", builtin.man_pages, default_set) -- Find man pages
-set("n", "<C-f>l", builtin.loclist, default_set) -- List Location list
-set("n", "<C-f>j", builtin.jumplist, default_set) -- List Jump list
-set("n", "<C-f>q", builtin.quickfix, default_set) -- Access commands
-set("n", "<C-f>k", builtin.keymaps, default_set) -- List keymaps
-set("n", "<C-f>m", builtin.marks, default_set) -- List Marks
-set("n", "<C-f>d", builtin.diagnostics, default_set) -- List Diagnostics
-set("n", "<C-f>t", builtin.treesitter, default_set) -- Lists tree-sitter objects
-
--- Lsp Bindings
-set("n", "gr", builtin.lsp_references, default_set) -- Goto Symbol references
-set("n", "<C-f>r", builtin.lsp_references, default_set) -- Find references
-set("n", "<C-f>I", builtin.lsp_incoming_calls, default_set) -- Goto Symbol incoming calls
-set("n", "<C-f>O", builtin.lsp_outgoing_calls, default_set) -- Goto Symbol outgoing calls
+set("n", "<C-f>b", builtin.diagnostics, default_set)        -- Find diagnostics/bugs
+set("n", "<C-f>B", builtin.buffers, default_set)            -- Find available Buffers
+set("n", "<C-f>o", builtin.oldfiles, default_set)           -- Find recently opened Files
+set("n", "<C-f>E", builtin.find_files, default_set)         -- Find files in CWD
+set("n", "<C-f>G", builtin.live_grep, default_set)          -- Grep inside files in CWD
+set("n", "<C-f>/", builtin.highlights, default_set)         -- Find Highlights
+set("n", "<C-f>c", builtin.commands, default_set)           -- Find available Commands
+set("n", "<C-f>R", builtin.registers, default_set)          -- Find register contents
+set("n", "<C-f>l", builtin.loclist, default_set)            -- List Location list
+set("n", "<C-f>j", builtin.jumplist, default_set)           -- List Jump list
+set("n", "<C-f>q", builtin.quickfix, default_set)           -- List Quickfix list
+set("n", "<C-f>m", builtin.marks, default_set)              -- List Marks
+set("n", "<C-f>t", builtin.treesitter, default_set)         -- Lists tree-sitter objects
+set("n", "<C-f>r", builtin.lsp_references, default_set)     -- Find symbol references
+set("n", "<C-f>I", builtin.lsp_incoming_calls, default_set) -- Find symbol incoming calls
+set("n", "<C-f>O", builtin.lsp_outgoing_calls, default_set) -- Find symbol outgoing calls
+set("n", "<C-f>a", vim.lsp.buf.code_action, default_set)    -- List code-actions
 
 -- Advanced Bindings
 
@@ -169,6 +164,19 @@ end
 
 set("n", "<C-f>g", custom_live_grep, default_set) -- Grep Git Repo or CWD
 set("n", "<C-f>e", custom_find_files, default_set) -- Find Files in Git Repo or CWD
+
+-- User commands
+vim.api.nvim_create_user_command('Telescope help-tags', function()
+  require('telescope.builtin').help_tags()
+end, {desc = 'Open Telescope Help Tags'})
+
+vim.api.nvim_create_user_command('Telescope keymaps', function()
+  require('telescope.builtin').keymaps()
+end, {desc = 'Open Telescope Keymaps'})
+
+vim.api.nvim_create_user_command('Telescope man-pages', function()
+  require('telescope.builtin').man_pages()
+end, {desc = 'Open Telescope Man Pages'})
 
 -- Load extensions
 telescope.load_extension("ui-select")

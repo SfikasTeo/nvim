@@ -79,7 +79,7 @@ return {
         -- lazy loaded by design
         "ggandor/leap.nvim",
         config = function()
-            require('leap').add_default_mappings()
+            require("plugins.leap")
         end,
     },
 	--

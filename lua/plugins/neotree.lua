@@ -78,7 +78,7 @@ require("neo-tree").setup({
 			nowait = true,
 		},
 		mappings = {
-			["<C-p>"] = {
+			["<C-w>p"] = {
 				"toggle_preview",
 				config = {
 					use_float = true,
@@ -88,18 +88,18 @@ require("neo-tree").setup({
 			-- Remove default
 			["s"] = "none",
 			["d"] = "none",
-			-- Add global
-			["P"] = "focus_preview",
 			[",,"] = "cancel",
-			["<C-r>"] = "refresh",
 			["<C-c>"] = "close_window",
-			["<C-n>"] = "close_window",
-			["<C-s>"] = "open_split",
-			["<C-v>"] = "open_vsplit",
-			["<C-o>"] = "open",
+			["<C-w>f"] = "focus_preview",
+			["<C-w>c"] = "close_window",
+			["<C-w>e"] = "close_window",
+			["<C-w>s"] = "open_split",
+			["<C-w>v"] = "open_vsplit",
+			["<C-w>t"] = "open_tabnew",
+			["<C-w>o"] = "open",
+			["R"] = "refresh",
 			["b"] = "navigate_up",
 			["t"] = "toggle_node",
-			["T"] = "open_tabnew",
 			["c"] = "close_node",
 			["C"] = "close_all_nodes",
 			["a"] = {
@@ -197,5 +197,5 @@ require("neo-tree").setup({
 	},
 })
 
-vim.api.nvim_set_keymap("n", "<C-n>", ":Neotree reveal<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-w>e", ":Neotree reveal<CR>", { noremap = true, silent = true })
 
