@@ -168,15 +168,16 @@ set("n", "<C-f>g", custom_live_grep, default_set) -- Grep Git Repo or CWD
 set("n", "<C-f>e", custom_find_files, default_set) -- Find Files in Git Repo or CWD
 
 -- User commands
-vim.api.nvim_create_user_command('Telescope help-tags', function()
+local usr_cmd = vim.api.nvim_create_user_command
+usr_cmd('Telescope help-tags', function()
   require('telescope.builtin').help_tags()
 end, {desc = 'Open Telescope Help Tags'})
 
-vim.api.nvim_create_user_command('Telescope keymaps', function()
+usr_cmd('Telescope keymaps', function()
   require('telescope.builtin').keymaps()
 end, {desc = 'Open Telescope Keymaps'})
 
-vim.api.nvim_create_user_command('Telescope man-pages', function()
+usr_cmd('Telescope man-pages', function()
   require('telescope.builtin').man_pages()
 end, {desc = 'Open Telescope Man Pages'})
 

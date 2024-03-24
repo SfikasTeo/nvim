@@ -35,7 +35,7 @@ map("nv", "D", '"_D', opts)
 map("nvo", "gh", "0", opts)
 map("nvo", "gl", "$", opts)
 
--- Navigation to leader + g-me
+-- Navigation to matching brackets
 map("nvo", "gm", "%", opts)
 
 -- Cut with leader + key

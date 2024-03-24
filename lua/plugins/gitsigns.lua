@@ -85,15 +85,16 @@ gitsigns.setup({
         map({ "o", "x" }, "ig", ":<C-U>Gitsigns select_hunk<CR>")
 
         -- User commands
-        vim.api.nvim_create_user_command("GitSigns diffhead", function()
+        local usr_cmd = vim.api.nvim_create_user_command
+        usr_cmd("GitSigns diffhead", function()
             gs.diffthis()
         end, { desc = "Show diff against the git HEAD" })
 
-        vim.api.nvim_create_user_command("GitSigns diffref", function(opts)
+        usr_cmd("GitSigns diffref", function(opts)
             gs.diffthis(opts.args)
         end, { nargs = 1, desc = "Show diff against any git reference" })
 
-        vim.api.nvim_create_user_command("GitSigns diffthis", function()
+        usr_cmd("GitSigns diffthis", function()
             gs.diffthis()
         end, { desc = "Show diff against last save" })
     end,
