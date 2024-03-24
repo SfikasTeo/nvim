@@ -80,7 +80,6 @@ telescope.setup({
 -- Set telescope specific keybindings
 
 -- Vim pickers
-set("n", "<C-f>b", builtin.diagnostics, default_set)        -- Find diagnostics/bugs
 set("n", "<C-f>B", builtin.buffers, default_set)            -- Find available Buffers
 set("n", "<C-f>o", builtin.oldfiles, default_set)           -- Find recently opened Files
 set("n", "<C-f>E", builtin.find_files, default_set)         -- Find files in CWD
@@ -97,6 +96,9 @@ set("n", "<C-f>r", builtin.lsp_references, default_set)     -- Find symbol refer
 set("n", "<C-f>I", builtin.lsp_incoming_calls, default_set) -- Find symbol incoming calls
 set("n", "<C-f>O", builtin.lsp_outgoing_calls, default_set) -- Find symbol outgoing calls
 set("n", "<C-f>a", vim.lsp.buf.code_action, default_set)    -- List code-actions
+
+-- Diagnostics
+set("n", "<C-g>d", builtin.diagnostics, default_set)        -- Find diagnostics/bugs
 
 -- Advanced Bindings
 

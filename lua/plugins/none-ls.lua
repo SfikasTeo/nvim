@@ -7,8 +7,8 @@ local diagnostics = null.builtins.diagnostics
 null.setup({
 	sources = {
 		-- Bash
-		formatter.shellharden,
         formatter.shfmt,
+        diagnostics.shellcheck,
 		-- Lua
 		formatter.stylua,
 		-- Web
@@ -17,9 +17,6 @@ null.setup({
         formatter.isort,
         formatter.black,
         diagnostics.mypy,
-        diagnostics.flake8,
 	},
 })
-
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, {})
 
