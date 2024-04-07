@@ -6,9 +6,6 @@ local diagnostics = null.builtins.diagnostics
 -- LSP intergration to Linters-Formatters
 null.setup({
 	sources = {
-		-- Bash
-        formatter.shfmt,
-        diagnostics.shellcheck,
 		-- Lua
 		formatter.stylua,
 		-- Web

@@ -88,7 +88,6 @@ require("neo-tree").setup({
 			-- Remove default
 			["s"] = "none",
 			["d"] = "none",
-			[",,"] = "cancel",
 			["<C-c>"] = "close_window",
 			["<C-w>f"] = "focus_preview",
 			["<C-w>c"] = "close_window",
@@ -157,7 +156,7 @@ require("neo-tree").setup({
 		window = {
 			mappings = {
 				["H"] = "toggle_hidden",
-				[",,"] = "clear_filter",
+				["esc"] = "clear_filter",
 			},
 		},
 	},

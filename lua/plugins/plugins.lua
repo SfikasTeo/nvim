@@ -168,6 +168,17 @@ return {
             require("plugins.gitsigns")
         end,
     },
+    {
+        "TimUntersberger/neogit",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim",
+            "sindrets/diffview.nvim",
+        },
+        config = function()
+            require("plugins.neogit")
+        end,
+    },
     --
     -- Language Specific Plugins
     -- Rust

@@ -1,22 +1,9 @@
 -- lua/plugins/lspconfig.lua
 local lspconfig = require("lspconfig")
 
-local on_attach = function(client, bufnr)
-    if client.server_capabilities.inlayHintProvider then
-        vim.lsp.inlay_hint.enable(bufnr, true)
-    end
-end
-
 -- Setup installed LSPs:
 lspconfig.asm_lsp.setup({})
-lspconfig.bashls.setup({
-    settings = {
-        shellcheck = {
-            enable = true,
-            -- exclude = { "SC1090", "SC2034", "SC2154" },
-        },
-    },
-})
+lspconfig.bashls.setup({})
 lspconfig.clangd.setup({})
 lspconfig.neocmake.setup({})
 lspconfig.html.setup({})
@@ -31,6 +18,7 @@ lspconfig.pylsp.setup({
                     maxLineLength = 120,
                     ignore = { "W391" },
                 },
+                -- Need to be installed separately
                 isort = { enabled = true },
                 black = { enabled = true },
                 mypy = { enabled = true },
@@ -78,8 +66,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
         set("n", "<C-g>l", vim.diagnostic.setloclist, { desc = "Populate loclist with diagnostics", buffer = ev.buf })
         set("n", "<C-g>q", vim.diagnostic.setqflist,
             { desc = "Populate quickfix list with diagnostics", buffer = ev.buf })
-        set("n", "<C-g>n", vim.diagnostic.goto_next, { desc = "Go to next diagnostic", buffer = ev.buf })
-        set("n", "<C-g>p", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic", buffer = ev.buf })
+        set("n", "<C-g>j", vim.diagnostic.goto_next, { desc = "Go to next diagnostic", buffer = ev.buf })
+        set("n", "<C-g>k", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic", buffer = ev.buf })
 
         -- User Commands
         local usr_cmd = vim.api.nvim_create_user_command

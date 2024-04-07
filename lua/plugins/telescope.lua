@@ -47,8 +47,8 @@ telescope.setup({
 		},
 		mappings = {
 			i = { -- insert_mode mappings
-				[",,"] = { "<esc>", type = "command" },
-				["jj"] = { "<esc>", type = "command" },
+				["ii"] = { "<esc>", type = "command" },
+				["<C-c>"] = actions.close,
 				["<C-q>"] = actions.send_to_qflist,
 				["<C-j>"] = actions.move_selection_next,
                 ["<C-k>"] = actions.move_selection_previous,
@@ -58,11 +58,10 @@ telescope.setup({
                 ["<C-w>o"] = actions.select_default,
 			},
 			n = { -- normal_mode mappings
-				[",,"] = actions.close,
+				["<C-c>"] = actions.close,
                 ["<C-q>"] = actions.send_to_qflist,
 				["<C-j>"] = actions.move_selection_next,
                 ["<C-k>"] = actions.move_selection_previous,
-				["<C-c>"] = actions.close,
 				["<C-w>v"] = actions.select_vertical,
 				["<C-w>s"] = actions.select_horizontal,
 				["<C-w>t"] = actions.select_tab,
@@ -80,7 +79,7 @@ telescope.setup({
 -- Set telescope specific keybindings
 
 -- Vim pickers
-set("n", "<C-f>B", builtin.buffers, default_set)            -- Find available Buffers
+set("n", "<C-f>w", builtin.buffers, default_set)            -- Find available Buffers
 set("n", "<C-f>o", builtin.oldfiles, default_set)           -- Find recently opened Files
 set("n", "<C-f>E", builtin.find_files, default_set)         -- Find files in CWD
 set("n", "<C-f>G", builtin.live_grep, default_set)          -- Grep inside files in CWD
