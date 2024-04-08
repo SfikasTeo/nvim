@@ -19,3 +19,13 @@ onedarkpro.setup({
 
 -- Apply the theme
 onedarkpro.load()
+
+    -- Color scheme OneDark
+    {
+        "olimorris/onedarkpro.nvim",
+        priority = 1000,
+        config = function()
+            require("plugins.onedarkpro")
+        end,
+    }
+

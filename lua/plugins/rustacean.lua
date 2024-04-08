@@ -54,3 +54,12 @@ usr_cmd("RustLsp parentModule", function() vim.cmd.RustLsp('parentModule') end, 
 usr_cmd("RustLsp crateGraph", function() vim.cmd.RustLsp('crateGraph') end, {})
 usr_cmd("RustLsp syntaxTree", function() vim.cmd.RustLsp('SyntaxTree') end, {})
 
+    --    {
+    --        'mrcjkb/rustaceanvim',
+    --        version = '^4',
+    --        ft = { 'rust' },
+    --        config = function()
+    --            require('plugins.rustacean')
+    --        end,
+    --    },
+

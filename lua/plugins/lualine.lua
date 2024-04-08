@@ -41,3 +41,4 @@ require("lualine").setup({
 		"neo-tree",
 	},
 })
+

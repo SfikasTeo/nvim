@@ -1,13 +1,12 @@
 -- lua/plugins/plugins.lua
 
 return {
-    -- Color scheme OneDark
     {
-        -- Needs to be loaded first
-        "olimorris/onedarkpro.nvim",
+        "rebelot/kanagawa.nvim",
+        lazy = false,
         priority = 1000,
         config = function()
-            require("plugins.onedarkpro")
+            require("plugins.kanagawa")
         end,
     },
     --
@@ -142,17 +141,17 @@ return {
     --
     -- Debuggers
     -- nvim-dap
---    {
---        "rcarriga/nvim-dap-ui",
---        dependencies = {
---            "mfussenegger/nvim-dap",
---            "nvim-neotest/nvim-nio",
---            "theHamsta/nvim-dap-virtual-text",
---    },
---        config = function()
---            require("plugins.dap")
---        end,
---    },
+    --    {
+    --        "rcarriga/nvim-dap-ui",
+    --        dependencies = {
+    --            "mfussenegger/nvim-dap",
+    --            "nvim-neotest/nvim-nio",
+    --            "theHamsta/nvim-dap-virtual-text",
+    --    },
+    --        config = function()
+    --            require("plugins.dap")
+    --        end,
+    --    },
     --
     -- Code Completion
     -- Github Copilot
@@ -188,13 +187,5 @@ return {
             require("plugins.rust-tools")
         end,
     },
---    {
---        'mrcjkb/rustaceanvim',
---        version = '^4',
---        ft = { 'rust' },
---        config = function()
---            require('plugins.rustacean')
---        end,
---    },
 }
 
