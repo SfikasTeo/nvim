@@ -37,12 +37,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
         local opts = { buffer = ev.buf }
 
         -- Global Key Mappings
-        set("n", "<C-f>h", vim.lsp.buf.hover, opts)          -- List hover information
-        set("n", "<C-f>s", vim.lsp.buf.signature_help, opts) -- List signature information
-        set("n", "<C-f>d", vim.lsp.buf.definition, opts)     -- Find definition
-        set("n", "<C-f>D", vim.lsp.buf.declaration, opts)    -- Find declaration
-        set("n", "<C-f>i", vim.lsp.buf.implementation, opts) -- Find implementation
-        set("n", "<C-r>r", vim.lsp.buf.rename, opts)         -- Rename symbol
+        set("n", "<leader>r", vim.lsp.buf.rename, opts)  -- Rename symbol
+        set("n", "gs", vim.lsp.buf.signature_help, opts) -- Show signature information
+        set("n", "gd", vim.lsp.buf.definition, opts)     -- Go to definition
+        set("n", "gD", vim.lsp.buf.declaration, opts)    -- Go to declaration
+        set("n", "gi", vim.lsp.buf.implementation, opts) -- Go to implementation
+        set("n", "go", vim.lsp.buf.hover, opts)          -- Show hover information
 
         -- Diagnostic Mappings
         vim.diagnostic.config({
@@ -60,9 +60,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
             },
         })
 
-        vim.keymap.set("n", "<C-n>", function()
-            vim.diagnostic.open_float()
-        end, { desc = "Show diagnostics for current line", buffer = ev.buf })
         set("n", "<C-g>l", vim.diagnostic.setloclist, { desc = "Populate loclist with diagnostics", buffer = ev.buf })
         set("n", "<C-g>q", vim.diagnostic.setqflist,
             { desc = "Populate quickfix list with diagnostics", buffer = ev.buf })

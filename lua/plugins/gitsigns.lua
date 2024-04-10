@@ -76,6 +76,17 @@ gitsigns.setup({
 		-- Actions
 		map("n", "<C-g>r", gs.reset_hunk)
 		map("n", "<C-g>R", gs.reset_buffer)
+		map("n", "<C-g>s", gs.stage_hunk, { desc = "Stage Git Hunk" })
+		map("n", "<C-g>u", gs.undo_stage_hunk, { desc = "Undo Stage Git Hunk" })
+		map("n", "<C-g>p", gs.preview_hunk, { desc = "Preview Git Hunk" })
+		map("n", "<C-g>d", gs.diffthis, { desc = "Git Diff" })
+
+		map("n", "<C-g>D", function()
+			gs.diffthis("~")
+		end, { desc = "Git Diff ~" })
+
+		-- Text object for hunks
+		map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Select Git Hunk" })
 		map("n", "<C-g>b", gs.toggle_current_line_blame)
 
 		-- Text object

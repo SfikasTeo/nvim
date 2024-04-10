@@ -79,6 +79,8 @@ telescope.setup({
 -- Set telescope specific keybindings
 
 -- Vim pickers
+
+-- f actions
 set("n", "<C-f>w", builtin.buffers, default_set)            -- Find available Buffers
 set("n", "<C-f>o", builtin.oldfiles, default_set)           -- Find recently opened Files
 set("n", "<C-f>E", builtin.find_files, default_set)         -- Find files in CWD
@@ -91,13 +93,13 @@ set("n", "<C-f>j", builtin.jumplist, default_set)           -- List Jump list
 set("n", "<C-f>q", builtin.quickfix, default_set)           -- List Quickfix list
 set("n", "<C-f>m", builtin.marks, default_set)              -- List Marks
 set("n", "<C-f>t", builtin.treesitter, default_set)         -- Lists tree-sitter objects
-set("n", "<C-f>r", builtin.lsp_references, default_set)     -- Find symbol references
-set("n", "<C-f>I", builtin.lsp_incoming_calls, default_set) -- Find symbol incoming calls
-set("n", "<C-f>O", builtin.lsp_outgoing_calls, default_set) -- Find symbol outgoing calls
+set("n", "<C-f>d", builtin.diagnostics, default_set)        -- List diagnostics/bugs
 set("n", "<C-f>a", vim.lsp.buf.code_action, default_set)    -- List code-actions
 
--- Diagnostics
-set("n", "<C-g>d", builtin.diagnostics, default_set)        -- Find diagnostics/bugs
+-- g actions
+set("n", "<C-g>i", builtin.lsp_incoming_calls, default_set) -- Find symbol incoming calls
+set("n", "<C-g>o", builtin.lsp_outgoing_calls, default_set) -- Find symbol outgoing calls
+set("n", "gr", builtin.lsp_references, default_set)         -- Find symbol references
 
 -- Advanced Bindings
 

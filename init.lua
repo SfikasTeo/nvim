@@ -29,8 +29,3 @@ local opts = {}
 
 require("lazy").setup(plugins, opts)
 
--- Set the colorscheme version
--- vim.cmd("colorscheme onedark")
--- Comes in 3 versions: wave, lotus, dragon
-vim.cmd("colorscheme kanagawa-dragon")
-

@@ -40,3 +40,6 @@ require("kanagawa").setup({
 	end,
 })
 
+-- Comes in 3 versions: wave, lotus, dragon
+vim.cmd("colorscheme kanagawa-dragon")
+

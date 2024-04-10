@@ -73,14 +73,6 @@ return {
 			require("plugins.floaty")
 		end,
 	},
-	-- Leap Navigation
-	{
-		-- lazy loaded by design
-		"ggandor/leap.nvim",
-		config = function()
-			require("plugins.leap")
-		end,
-	},
 	--
 	-- LSPs - Formatters - Linters
 	-- Mason
