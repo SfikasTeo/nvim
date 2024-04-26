@@ -78,7 +78,7 @@ require("neo-tree").setup({
 			nowait = true,
 		},
 		mappings = {
-			["<C-w>p"] = {
+			["P"] = {
 				"toggle_preview",
 				config = {
 					use_float = true,
@@ -88,13 +88,13 @@ require("neo-tree").setup({
 			["s"] = false,
 			["a"] = false,
 			["d"] = false,
+			["o"] = false,
 			["<C-c>"] = "close_window",
-			["<C-w>f"] = "focus_preview",
 			["<C-w>e"] = "close_window",
+			["<C-w>p"] = "focus_preview",
 			["<C-w>s"] = "open_split",
 			["<C-w>v"] = "open_vsplit",
 			["<C-w>t"] = "open_tabnew",
-			["<C-w>o"] = "open",
 			["R"] = "refresh",
 			["b"] = "navigate_up",
 			["t"] = "toggle_node",
@@ -113,7 +113,6 @@ require("neo-tree").setup({
 			["i"] = "show_file_details",
 			["."] = "set_root",
 			["m"] = "move",
-			["o"] = false,
 			["oc"] = "order_by_created",
 			["od"] = "order_by_diagnostics",
 			["og"] = "order_by_git_status",
@@ -161,14 +160,7 @@ require("neo-tree").setup({
 		window = {
 			position = "float",
 			mappings = {
-				["g"] = {
-					"show_help",
-					nowait = false,
-					config = {
-						title = "Git action",
-						prefix_key = "g",
-					},
-				},
+				["g"] = false,
 				["gA"] = "git_add_all",
 				["gu"] = "git_unstage_file",
 				["ga"] = "git_add_file",

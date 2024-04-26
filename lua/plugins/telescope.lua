@@ -81,7 +81,7 @@ telescope.setup({
 -- Vim pickers
 
 -- f actions
-set("n", "<C-f>w", builtin.buffers, default_set)            -- Find available Buffers
+set("n", "<C-f>b", builtin.buffers, default_set)            -- Find available Buffers
 set("n", "<C-f>o", builtin.oldfiles, default_set)           -- Find recently opened Files
 set("n", "<C-f>E", builtin.find_files, default_set)         -- Find files in CWD
 set("n", "<C-f>G", builtin.live_grep, default_set)          -- Grep inside files in CWD

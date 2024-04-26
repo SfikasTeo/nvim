@@ -40,12 +40,6 @@ map("nv", "<leader>d", "d", opts)
 map("nv", "<leader>x", "x", opts)
 map("nv", "<leader>D", "D", opts)
 
--- Move around split windows with C-<hjkl>
-set("n", "<C-h>", "<C-w>h", opts)
-set("n", "<C-j>", "<C-w>j", opts)
-set("n", "<C-k>", "<C-w>k", opts)
-set("n", "<C-l>", "<C-w>l", opts)
-
 -- More aggressive window resizing
 set("n", "<C-w><", "20<C-w><", opts)
 set("n", "<C-w>-", "20<C-w>-", opts)

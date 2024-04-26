@@ -3,7 +3,7 @@ local lspconfig = require("lspconfig")
 
 -- Setup installed LSPs:
 lspconfig.asm_lsp.setup({})
-lspconfig.bashls.setup({})
+-- lspconfig.bashls.setup({})
 lspconfig.clangd.setup({})
 lspconfig.neocmake.setup({})
 lspconfig.html.setup({})
@@ -37,12 +37,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
         local opts = { buffer = ev.buf }
 
         -- Global Key Mappings
-        set("n", "<leader>r", vim.lsp.buf.rename, opts)  -- Rename symbol
-        set("n", "gs", vim.lsp.buf.signature_help, opts) -- Show signature information
-        set("n", "gd", vim.lsp.buf.definition, opts)     -- Go to definition
-        set("n", "gD", vim.lsp.buf.declaration, opts)    -- Go to declaration
-        set("n", "gi", vim.lsp.buf.implementation, opts) -- Go to implementation
-        set("n", "go", vim.lsp.buf.hover, opts)          -- Show hover information
+        set("n", "<leader>r", vim.lsp.buf.rename, opts)     -- Rename symbol
+        set("n", "gs", vim.lsp.buf.signature_help, opts)    -- Show signature information
+        set("n", "gd", vim.lsp.buf.definition, opts)        -- Go to definition
+        set("n", "gD", vim.lsp.buf.declaration, opts)       -- Go to declaration
+        set("n", "gi", vim.lsp.buf.implementation, opts)    -- Go to implementation
+        set("n", "K", vim.lsp.buf.hover, opts)              -- Show hover information
 
         -- Diagnostic Mappings
         vim.diagnostic.config({
