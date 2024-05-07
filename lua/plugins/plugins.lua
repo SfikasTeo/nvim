@@ -150,6 +150,12 @@ return {
 	{
 		"github/copilot.vim",
 	},
+    --
+    -- Remote Container support
+    --
+    {
+        "jamestthompson3/nvim-remote-containers",
+    },
 	--
 	-- Git Integration
 	-- Git Signs

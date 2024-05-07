@@ -50,6 +50,8 @@ require("nvim-treesitter.configs").setup({
 		-- Notes
 		"markdown",
 		"markdown_inline",
+        -- Plugins
+        "jsonc", -- JSON with comments
 	},
 
 	sync_install = false,
