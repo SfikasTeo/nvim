@@ -8,7 +8,6 @@ require("mason-lspconfig").setup({
 		"asm_lsp",
 		"bashls",
 		"clangd",
-		"neocmake",
 		"html",
 		"tsserver",
 		"lua_ls",

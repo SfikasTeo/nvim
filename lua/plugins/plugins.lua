@@ -150,11 +150,14 @@ return {
 	{
 		"github/copilot.vim",
 	},
-    --
-    -- Remote Container support
-    --
-    {
-        "jamestthompson3/nvim-remote-containers",
+	--
+	-- Remote Container support
+	--
+	{
+        "https://codeberg.org/esensar/nvim-dev-container",
+        config = function()
+            require("devcontainer").setup({})
+        end,
     },
 	--
 	-- Git Integration
@@ -186,4 +189,3 @@ return {
 		end,
 	},
 }
-

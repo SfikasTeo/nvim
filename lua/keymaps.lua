@@ -31,8 +31,8 @@ map("nv", "x", '"_x', opts)
 map("nv", "D", '"_D', opts)
 
 -- Add Navigating motions
-map("nvo", "gh", "0", opts)
-map("nvo", "gl", "$", opts)
+map("nvo", "<C-a>", "0", opts)
+map("nvo", "<C-e>", "$", opts)
 map("nvo", "gm", "%", opts)
 
 -- Cut with leader + key

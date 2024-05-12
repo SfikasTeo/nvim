@@ -1,5 +1,6 @@
 -- lua/plugins/telescope.lua
 local telescope = require("telescope")
+local themes = require("telescope.themes")
 local builtin = require("telescope.builtin")
 local actions = require("telescope.actions")
 local action_state = require("telescope.actions.state")
@@ -124,49 +125,35 @@ local function path_to_clipboard(prompt_bufnr)
 	vim.fn.setreg("+", path)
 end
 
--- Customize live_grep & find_files dynamically
-local function custom_live_grep()
-	local opts = {}
-
-	-- if on git repo change cwd
-	local git_root = get_git_root()
-	if git_root then
-		opts.cwd = git_root
-	end
-
-	-- Add mappings
-	opts.attach_mappings = function(prompt_bufnr, map)
-		map("n", "yy", function()
-			path_to_clipboard(prompt_bufnr)
-		end)
-		return true
-	end
-
-	require("telescope.builtin").live_grep(opts)
+local function select_theme(theme_name)
+    local theme_map = {
+        ivy = themes.get_ivy(),
+        dropdown = themes.get_dropdown(),
+        default = {}
+    }
+    return theme_map[theme_name] or theme_map.default
 end
 
-local function custom_find_files()
-	local opts = {}
+local function explorer_opts(theme_name)
+    local opts = select_theme(theme_name)
+    opts.cwd = get_git_root() or vim.fn.getcwd()
 
-	-- if on git repo change cwd
-	local git_root = get_git_root()
-	if git_root then
-		opts.cwd = git_root
-	end
+    -- Add mappings
+    opts.attach_mappings = function(prompt_bufnr, map)
+        map("n", "yy", function()
+            path_to_clipboard(prompt_bufnr)
+        end)
+        return true
+    end
 
-	-- Add mappings
-	opts.attach_mappings = function(prompt_bufnr, map)
-		map("n", "yy", function()
-			path_to_clipboard(prompt_bufnr)
-		end)
-		return true
-	end
-
-	require("telescope.builtin").find_files(opts)
+    return opts
 end
 
-set("n", "<C-f>g", custom_live_grep, default_set) -- Grep Git Repo or CWD
-set("n", "<C-f>e", custom_find_files, default_set) -- Find Files in Git Repo or CWD
+set("n", "<C-f>e", function() builtin.find_files(explorer_opts()) end, default_set)
+set("n", "<C-f>g", function() builtin.live_grep(explorer_opts()) end, default_set)
+
+set("n", "<leader>.", function() builtin.find_files(explorer_opts("ivy")) end, default_set)
+set("n", "<leader>,", function() builtin.buffers(select_theme("ivy")) end, default_set)
 
 -- User commands
 local usr_cmd = vim.api.nvim_create_user_command
