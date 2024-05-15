@@ -2,6 +2,9 @@
 
 local neogit = require("neogit")
 
+local set = vim.keymap.set
+local default_set = { noremap = true, silent = true }
+
 neogit.setup({
 	disable_hint = false,
 	disable_context_highlighting = false,
@@ -205,4 +208,6 @@ neogit.setup({
 		},
 	},
 })
+
+set("n", "<leader>og", "<cmd>Neogit<cr>", default_set)
 

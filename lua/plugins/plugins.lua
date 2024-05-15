@@ -47,24 +47,20 @@ return {
 			require("plugins.neotree")
 		end,
 	},
-	-- lua-line
+	-- mini.pairs
 	{
-		-- Cannot be lazy loaded
-		"nvim-lualine/lualine.nvim",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
+		"echasnovski/mini.pairs",
 		config = function()
-			require("plugins.lualine")
-		end,
-	},
-	-- autopairs
-	{
-		"windwp/nvim-autopairs",
-		config = function()
-			require("nvim-autopairs").setup({})
+			require("mini.pairs").setup()
 		end,
 		event = "InsertEnter",
+	},
+	-- mini.surround
+	{
+		"echasnovski/mini.surround",
+		config = function()
+			require("mini.surround").setup()
+		end,
 	},
 	-- Floating Terminal
 	{
@@ -154,11 +150,11 @@ return {
 	-- Remote Container support
 	--
 	{
-        "https://codeberg.org/esensar/nvim-dev-container",
-        config = function()
-            require("devcontainer").setup({})
-        end,
-    },
+		"https://codeberg.org/esensar/nvim-dev-container",
+		config = function()
+			require("devcontainer").setup({})
+		end,
+	},
 	--
 	-- Git Integration
 	-- Git Signs
@@ -168,6 +164,7 @@ return {
 			require("plugins.gitsigns")
 		end,
 	},
+	-- Neogit
 	{
 		"TimUntersberger/neogit",
 		dependencies = {
@@ -186,6 +183,68 @@ return {
 		"simrat39/rust-tools.nvim",
 		config = function()
 			require("plugins.rust-tools")
+		end,
+	},
+	--
+	-- Org Mode
+	-- Orgmode.nvim
+	{
+		"nvim-orgmode/orgmode",
+		event = "VeryLazy",
+		ft = { "org" },
+		config = function()
+			require("plugins.nvim-org")
+		end,
+	},
+	-- Org-bullets
+	{
+		"akinsho/org-bullets.nvim",
+		ft = { "org" },
+		dependencies = {
+			"nvim-orgmode/orgmode",
+		},
+	},
+	-- Org-roam
+	-- {
+	-- 	"chipsenkbeil/org-roam.nvim",
+	--     ft = { "org" },
+	-- 	dependencies = {
+	-- 		"nvim-orgmode/orgmode",
+	-- 	},
+	-- },
+	--
+	-- UI plugins
+	-- lua-line
+	{
+		-- Cannot be lazy loaded
+		"nvim-lualine/lualine.nvim",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+		config = function()
+			require("plugins.lualine")
+		end,
+	},
+	-- Which-key
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		init = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+		end,
+		opts = {
+			triggers_blacklist = {
+				i = { "i" },
+			},
+		},
+	},
+	-- Mini Indent Scope
+	{
+		"echasnovski/mini.indentscope",
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			require("plugins.mini-indentscope")
 		end,
 	},
 }

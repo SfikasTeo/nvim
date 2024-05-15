@@ -134,11 +134,9 @@ local function select_theme(theme_name)
     return theme_map[theme_name] or theme_map.default
 end
 
-local function explorer_opts(theme_name)
+local function set_opts(theme_name, cwd_path)
     local opts = select_theme(theme_name)
-    opts.cwd = get_git_root() or vim.fn.getcwd()
-
-    -- Add mappings
+    opts.cwd = cwd_path or get_git_root() or vim.fn.getcwd()
     opts.attach_mappings = function(prompt_bufnr, map)
         map("n", "yy", function()
             path_to_clipboard(prompt_bufnr)
@@ -149,11 +147,17 @@ local function explorer_opts(theme_name)
     return opts
 end
 
-set("n", "<C-f>e", function() builtin.find_files(explorer_opts()) end, default_set)
-set("n", "<C-f>g", function() builtin.live_grep(explorer_opts()) end, default_set)
+-- Usage of the modified function
+set("n", "<C-f>e", function() builtin.find_files(set_opts()) end, default_set)
+set("n", "<C-f>g", function() builtin.live_grep(set_opts()) end, default_set)
 
-set("n", "<leader>.", function() builtin.find_files(explorer_opts("ivy")) end, default_set)
+-- Example calls with optional cwd_path argument
+set("n", "<leader>.", function() builtin.find_files(set_opts("ivy")) end, default_set)
 set("n", "<leader>,", function() builtin.buffers(select_theme("ivy")) end, default_set)
+
+-- Org:
+set("n", "<leader>on", function() builtin.find_files(set_opts("ivy", "~/org/")) end, default_set)
+set("n", "<leader>of", function() builtin.live_grep(set_opts("ivy", "~/org/")) end, default_set)
 
 -- User commands
 local usr_cmd = vim.api.nvim_create_user_command

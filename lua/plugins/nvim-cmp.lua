@@ -2,13 +2,6 @@
 local cmp = require("cmp")
 local ls = require("luasnip")
 
--- autopairs
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-cmp.event:on(
-    'confirm_done',
-    cmp_autopairs.on_confirm_done({ map_char = { tex = '' } })
-)
-
 -- Load snippets from friendly-snippets
 require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -31,6 +24,7 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" },
+        { name = "orgmode" },
         { name = "buffer" },
         { name = "path" },
     }),

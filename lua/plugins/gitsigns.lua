@@ -53,7 +53,7 @@ gitsigns.setup({
 		end
 
 		-- Hunk navigation
-		map("n", "<C-g>n", function()
+		map("n", "<C-g>[", function()
 			if vim.wo.diff then
 				return "]c"
 			end
@@ -63,7 +63,7 @@ gitsigns.setup({
 			return "<Ignore>"
 		end, { expr = true, desc = "Next Git Hunk" })
 
-		map("n", "<C-g>p", function()
+		map("n", "<C-g>]", function()
 			if vim.wo.diff then
 				return "[c"
 			end
@@ -88,9 +88,6 @@ gitsigns.setup({
 		-- Text object for hunks
 		map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Select Git Hunk" })
 		map("n", "<C-g>b", gs.toggle_current_line_blame)
-
-		-- Text object
-		map({ "o", "x" }, "ig", ":<C-U>Gitsigns select_hunk<CR>")
 	end,
 })
 
