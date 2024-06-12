@@ -26,3 +26,44 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 		-- end
 	end,
 })
+
+-- Execute shellcheck & populate the location list
+local function shellcheck_current_buffer()
+    local filepath = vim.api.nvim_buf_get_name(0)
+    local shellcheck_cmd = "shellcheck -a -f gcc " .. filepath
+    local result = vim.fn.systemlist(shellcheck_cmd)
+    for i, line in ipairs(result) do
+        print(i, line)
+    end
+
+    if #result == 0 then
+        print("shellcheck: nothing to be done")
+        return
+    end
+    local loclist = {}
+    for _, line in ipairs(result) do
+        -- gcc output format: file:line:col: message
+        local parts = vim.split(line, ':')
+        if #parts >= 4 then
+            local bufnr = vim.fn.bufnr(parts[1])
+            local lnum = tonumber(parts[2])
+            local col = tonumber(parts[3])
+            local text = table.concat(vim.list_slice(parts, 4), ':')
+            local type = string.sub(parts[4], 1, 1)
+
+            table.insert(loclist, {
+                bufnr = vim.api.nvim_get_current_buf(),
+                lnum = lnum,
+                col = col,
+                text = text,
+                type = type
+            })
+        end
+    end
+
+    vim.fn.setloclist(0, loclist)
+    vim.cmd("Telescope loclist")
+end
+
+vim.api.nvim_create_user_command("ShellCheck", shellcheck_current_buffer, {})
+

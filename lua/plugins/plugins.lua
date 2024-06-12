@@ -1,15 +1,15 @@
 -- lua/plugins/plugins.lua
 
 return {
-	{
-		"rebelot/kanagawa.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("plugins.kanagawa")
-		end,
-	},
-	--
+    {
+        'AlexvZyl/nordic.nvim',
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require('plugins.nordic')
+        end
+    },
+    --
 	-- Core Utilities
 	-- Telescope
 	{

@@ -89,7 +89,6 @@ require("neo-tree").setup({
 			["a"] = false,
 			["d"] = false,
 			["o"] = false,
-			["<C-c>"] = "close_window",
 			["<leader>op"] = "close_window",
 			["<C-w>e"] = "focus_preview",
 			["<C-w>s"] = "open_split",

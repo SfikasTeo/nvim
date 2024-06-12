@@ -1,5 +1,15 @@
 -- lua/plugins/kanagawa.lua
 
+--	{
+--		"rebelot/kanagawa.nvim",
+--		lazy = false,
+--		priority = 1000,
+--		config = function()
+--			require("plugins.kanagawa")
+--		end,
+--	},
+--
+
 require("kanagawa").setup({
 	compile = false,
 	undercurl = true,

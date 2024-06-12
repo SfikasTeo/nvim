@@ -182,7 +182,10 @@ neogit.setup({
 			["w"] = "WorktreePopup",
 		},
 		status = {
+			["k"] = "MoveUp",
+			["j"] = "MoveDown",
 			["q"] = "Close",
+			["o"] = "OpenTree",
 			["I"] = "InitRepo",
 			["1"] = "Depth1",
 			["2"] = "Depth2",
@@ -193,10 +196,10 @@ neogit.setup({
 			["s"] = "Stage",
 			["S"] = "StageUnstaged",
 			["<c-s>"] = "StageAll",
+			["K"] = "Untrack",
 			["u"] = "Unstage",
 			["U"] = "UnstageStaged",
 			["$"] = "CommandHistory",
-			["#"] = "Console",
 			["Y"] = "YankSelected",
 			["<c-r>"] = "RefreshBuffer",
 			["<enter>"] = "GoToFile",
@@ -205,9 +208,10 @@ neogit.setup({
 			["<c-t>"] = "TabOpen",
 			["{"] = "GoToPreviousHunkHeader",
 			["}"] = "GoToNextHunkHeader",
+			["[c"] = "OpenOrScrollUp",
+			["]c"] = "OpenOrScrollDown",
 		},
 	},
 })
 
 set("n", "<leader>og", "<cmd>Neogit<cr>", default_set)
-
