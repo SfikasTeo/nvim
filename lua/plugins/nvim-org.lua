@@ -6,6 +6,7 @@ local org_bullets = require("org-bullets")
 org.setup({
 	org_agenda_files = "~/org/**/*",
 	org_default_notes_file = "~/org/index.org",
+    org_startup_folded = "showeverything",
 })
 
 org_bullets.setup({})

@@ -114,7 +114,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		-- List Workspace Folders Command
 		usr_cmd("LspListWorkspaces", function()
-			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+            vim.notify(vim.inspect(vim.lsp.buf.list_workspace_folders()), vim.log.levels.INFO)
 		end, { desc = "List all workspace folders" })
 
 		-- Format Document

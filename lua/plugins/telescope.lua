@@ -132,7 +132,7 @@ local function path_to_clipboard(prompt_bufnr)
 
 	-- Construct an absolute path
 	local path = cwd .. "/" .. selection.value
-	print(path)
+    vim.notify("Copied to clipboard: " .. path)
 	path = vim.fn.fnamemodify(path, ":p")
 
 	vim.fn.setreg("+", path)
