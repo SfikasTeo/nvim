@@ -97,8 +97,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.diagnostic.setqflist,
 			{ desc = "Populate quickfix list with diagnostics", buffer = ev.buf }
 		)
-		set("n", "<C-g>j", vim.diagnostic.goto_next, { desc = "Go to next diagnostic", buffer = ev.buf })
-		set("n", "<C-g>k", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic", buffer = ev.buf })
+		set("n", "<C-g>n", vim.diagnostic.goto_next, { desc = "Go to next diagnostic", buffer = ev.buf })
+		set("n", "<C-g>p", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic", buffer = ev.buf })
 
 		-- User Commands
 		local usr_cmd = vim.api.nvim_create_user_command

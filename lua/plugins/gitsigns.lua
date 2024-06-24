@@ -40,7 +40,7 @@ gitsigns.setup({
 	},
 
 	on_attach = function(bufnr)
-		local gs = package.loaded.gitsigns
+        local gs = require('gitsigns')
 
 		local function map(mode, l, r, opts)
 			opts = opts or {}
@@ -49,7 +49,7 @@ gitsigns.setup({
 		end
 
 		-- Hunk navigation
-		map("n", "<C-g>[", function()
+		map("n", "<C-g>j", function()
 			if vim.wo.diff then
 				return "]c"
 			end
@@ -59,7 +59,7 @@ gitsigns.setup({
 			return "<Ignore>"
 		end, { expr = true, desc = "Next Git Hunk" })
 
-		map("n", "<C-g>]", function()
+		map("n", "<C-g>k", function()
 			if vim.wo.diff then
 				return "[c"
 			end
@@ -76,6 +76,7 @@ gitsigns.setup({
 		map("n", "<C-g>u", gs.undo_stage_hunk, { desc = "Undo Stage Git Hunk" })
 		map("n", "<C-g>p", gs.preview_hunk, { desc = "Preview Git Hunk" })
 		map("n", "<C-g>d", gs.diffthis, { desc = "Git Diff" })
+		map("n", "<C-g>b", gs.toggle_current_line_blame)
 
 		map("n", "<C-g>D", function()
 			gs.diffthis("~")
@@ -83,7 +84,6 @@ gitsigns.setup({
 
 		-- Text object for hunks
 		map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Select Git Hunk" })
-		map("n", "<C-g>b", gs.toggle_current_line_blame)
 	end,
 })
 
