@@ -4,8 +4,8 @@ require 'nordic' .setup {
     on_palette = function(palette)
         palette.black0 = '#101010'
         palette.black1 = '#141414'
-        palette.black2 = '#181818'
-        palette.gray0 = '#1a1a18'
+        palette.black2 = '#161616'
+        palette.gray0 = '#1d1d1d'
         palette.gray1 = '#424242'
         palette.gray2 = '#525252'
         palette.gray3 = '#626262'
@@ -22,6 +22,7 @@ require 'nordic' .setup {
     override = {
         Visual = { bg = '#424242' },
         VisualNOS = { bg = '#424242'},
+        CursorLine = { bg = '#161616' },
     },
     cursorline = {
         bold = false,

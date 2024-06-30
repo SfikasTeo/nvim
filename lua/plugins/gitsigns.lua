@@ -68,6 +68,26 @@ gitsigns.setup({
 			end)
 			return "<Ignore>"
 		end, { expr = true, desc = "Previous Git Hunk" })
+
+		map("n", "<C-g>n", function()
+			if vim.wo.diff then
+				return "]c"
+			end
+			vim.schedule(function()
+				gs.next_hunk()
+			end)
+			return "<Ignore>"
+		end, { expr = true, desc = "Next Git Hunk" })
+
+		map("n", "<C-g>e", function()
+			if vim.wo.diff then
+				return "[c"
+			end
+			vim.schedule(function()
+				gs.prev_hunk()
+			end)
+			return "<Ignore>"
+		end, { expr = true, desc = "Previous Git Hunk" })
 		--
 		-- Actions
 		map("n", "<C-g>r", gs.reset_hunk)

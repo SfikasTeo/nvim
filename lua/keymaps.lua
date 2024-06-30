@@ -20,26 +20,28 @@ vim.g.mapleader = " "
 
 -- Quality of life:
 set("n", "<leader>h", "<Cmd>noh<CR>", opts)
-set({"n", "v", "o"}, "<C-c>", "<Esc>", opts) -- Apply to normal, visual, and operator modes
-set({"v", "o"}, "ii", "<Esc>", opts)         -- Apply to visual and operator modes
+set({ "n", "v", "o" }, "<C-c>", "<Esc>", opts)
+set({ "v", "o" }, "ii", "<Esc>", opts)
 set("i", "jj", "<Esc>", opts)
 
--- Keep cursor in the middle of the screen
-set("n", "<C-u>", "<C-u>zz", opts)
-set("n", "<C-d>", "<C-d>zz", opts)
-
 -- Delete without yanking
-set({"n", "v"}, "d", '"_d', opts)
-set({"n", "v"}, "x", '"_x', opts)
-set({"n", "v"}, "D", '"_D', opts)
+set({ "n", "v" }, "d", '"_d', opts)
+set({ "n", "v" }, "x", '"_x', opts)
+set({ "n", "v" }, "D", '"_D', opts)
 
 -- Add Navigating motions
-set({"n", "v", "o"}, "gm", "%", opts)
+set({ "n", "v", "o" }, "gm", "%", opts)
+set({ "n", "v", "o" }, "<C-u>", "<C-u>zz", opts)
+set({ "n", "v", "o" }, "<C-d>", "<C-d>zz", opts)
+set({ "n", "v", "o" }, "<C-j>", "4j", opts)
+set({ "n", "v", "o" }, "<C-k>", "4k", opts)
+set({ "n", "v", "o" }, "W", "2W", opts)
+set({ "n", "v", "o" }, "B", "2B", opts)
 
 -- Cut with leader + key
-set({"n", "v"}, "<leader>d", "d", opts)
-set({"n", "v"}, "<leader>x", "x", opts)
-set({"n", "v"}, "<leader>D", "D", opts)
+set({ "n", "v" }, "<leader>d", "d", opts)
+set({ "n", "v" }, "<leader>x", "x", opts)
+set({ "n", "v" }, "<leader>D", "D", opts)
 
 -- More aggressive window resizing
 set("n", "<C-w><", "20<C-w><", opts)
@@ -50,81 +52,58 @@ set("n", "<C-w>>", "20<C-w>>", opts)
 -- Terminal Mode
 set("t", "ii", "<C-\\><C-n>", opts)
 
--- Layout switching
-vim.g.keyboard_layout = "colemak-dhm"
+-- layout switching
+vim.g.keyboard_layout = "qwerty"
 
-local function layoutRemapper(layout)
-    if layout == "colemak" then
-        set({"n", "v", "o"}, "m", "h", opts)
-        set({"n", "v", "o"}, "n", "j", opts)
-        set({"n", "v", "o"}, "e", "k", opts)
-        set({"n", "v", "o"}, "i", "l", opts)
-        set({"n", "v", "o"}, "M", "H", opts)
-        set({"n", "v", "o"}, "N", "J", opts)
-        set({"n", "v", "o"}, "E", "K", opts)
-        set({"n", "v", "o"}, "I", "L", opts)
-        set({"n", "v", "o"}, "<C-m>", "<C-h>", opts)
-        set({"n", "v", "o"}, "<C-n>", "<C-j>", opts)
-        set({"n", "v", "o"}, "<C-e>", "<C-k>", opts)
-        set({"n", "v", "o"}, "<C-i>", "<C-l>", opts)
+local function clearMappings()
+	set({ "n", "v", "o" }, "n", "n", opts)
+	set({ "n", "v", "o" }, "e", "e", opts)
+	set({ "n", "v", "o" }, "j", "j", opts)
+	set({ "n", "v", "o" }, "k", "k", opts)
+	set({ "n", "v", "o" }, "<c-n>", "<c-n>", opts)
+	set({ "n", "v", "o" }, "<c-e>", "<c-e>", opts)
+	set({ "n", "v", "o" }, "<c-w>j", "<c-w>j", opts)
+	set({ "n", "v", "o" }, "<c-w>k", "<c-w>k", opts)
+    set({ "n", "v", "o" }, "<leader>j", "<leader>j", opts)
+    set({ "n", "v", "o" }, "<leader>k", "<leader>k", opts)
 
-        set({"n", "v", "o"}, "h", "i", opts)
-        set({"n", "v", "o"}, "k", "n", opts)
-        set({"n", "v", "o"}, "j", "y", opts)
-        set({"n", "v", "o"}, "l", "e", opts)
-        set({"n", "v", "o"}, "H", "I", opts)
-        set({"n", "v", "o"}, "K", "N", opts)
-        set({"n", "v", "o"}, "L", "E", opts)
-        set({"n", "v", "o"}, "J", "Y", opts)
-        set({"n", "v", "o"}, "<C-h>", "<C-i>", opts)
-        set({"n", "v", "o"}, "<C-k>", "<C-n>", opts)
-        set({"n", "v", "o"}, "<C-j>", "<C-y>", opts)
-        set({"n", "v", "o"}, "<C-l>", "<C-e>", opts)
+	set({ "i" }, "nn", "nn", opts)
+end
 
-        set({"n", "v", "o"}, "j", ";", opts)
-        set({"n", "v", "o"}, "J", ":", opts)
-        set({"n", "v", "o"}, ":", "m", opts)
-        set({"n", "v", "o"}, ";", "M", opts)
+local function layoutMapper(layout)
+	if layout == "colemak" then
+		set({ "n", "v", "o" }, "n", "j", opts)
+		set({ "n", "v", "o" }, "e", "k", opts)
+		set({ "n", "v", "o" }, "<c-n>", "8j", opts)
+		set({ "n", "v", "o" }, "<c-e>", "8k", opts)
+		set({ "n", "v", "o" }, "<c-w>n", "<c-w>j", opts)
+		set({ "n", "v", "o" }, "<c-w>e", "<c-w>k", opts)
+		set({ "n", "v", "o" }, "<leader>n", "<leader>j", opts)
+		set({ "n", "v", "o" }, "<leader>e", "<leader>k", opts)
 
-    elseif layout == "qwerty" then
-        set({"n", "v", "o"}, "h", "h", opts)
-        set({"n", "v", "o"}, "j", "j", opts)
-        set({"n", "v", "o"}, "k", "k", opts)
-        set({"n", "v", "o"}, "l", "l", opts)
-        set({"n", "v", "o"}, "H", "H", opts)
-        set({"n", "v", "o"}, "J", "J", opts)
-        set({"n", "v", "o"}, "K", "K", opts)
-        set({"n", "v", "o"}, "L", "L", opts)
-        set({"n", "v", "o"}, "<C-h>", "<C-h>", opts)
-        set({"n", "v", "o"}, "<C-j>", "<C-j>", opts)
-        set({"n", "v", "o"}, "<C-k>", "<C-k>", opts)
-        set({"n", "v", "o"}, "<C-l>", "<C-l>", opts)
+		set({ "n", "v", "o" }, "j", "e", opts)
+		set({ "n", "v", "o" }, "k", "n", opts)
+		set({ "n", "v", "o" }, "<c-w>j", "<c-w>e", opts)
+		set({ "n", "v", "o" }, "<c-w>k", "<c-w>n", opts)
+		set({ "n", "v", "o" }, "<leader>j", "<leader>e", opts)
+		set({ "n", "v", "o" }, "<leader>k", "<leader>n", opts)
 
-        set({"n", "v", "o"}, "m", "m", opts)
-        set({"n", "v", "o"}, "n", "n", opts)
-        set({"n", "v", "o"}, "e", "e", opts)
-        set({"n", "v", "o"}, "i", "i", opts)
-        set({"n", "v", "o"}, "M", "M", opts)
-        set({"n", "v", "o"}, "N", "N", opts)
-        set({"n", "v", "o"}, "E", "E", opts)
-        set({"n", "v", "o"}, "I", "I", opts)
-        set({"n", "v", "o"}, "<C-m>", "<C-m>", opts)
-        set({"n", "v", "o"}, "<C-n>", "<C-n>", opts)
-        set({"n", "v", "o"}, "<C-e>", "<C-e>", opts)
-        set({"n", "v", "o"}, "<C-i>", "<C-i>", opts)
-
-        set({"n", "v", "o"}, "j", "j", opts)
-    end
+		set({ "i" }, "nn", "<esc>", opts)
+	elseif layout ~= "colemak" then
+		clearMappings()
+	end
 end
 
 local function toggleLayout()
-    if vim.g.keyboard_layout == "colemak" then
-        vim.g.keyboard_layout = "qwerty"
-    else
-        vim.g.keyboard_layout = "colemak"
-    end
-    layoutRemapper(vim.g.keyboard_layout)
-    vim.notify("Switched to " .. vim.g.keyboard_layout .. " layout", vim.log.levels.INFO)
+	if vim.g.keyboard_layout == "colemak" then
+		vim.g.keyboard_layout = "reset"
+		vim.notify("resetting to default layout", vim.log.levels.info)
+	else
+		vim.g.keyboard_layout = "colemak"
+		vim.notify("switching to colemak layout", vim.log.levels.info)
+	end
+	layoutMapper(vim.g.keyboard_layout)
 end
 
 vim.api.nvim_create_user_command("ToggleLayout", toggleLayout, {})
+

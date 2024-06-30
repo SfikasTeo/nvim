@@ -70,6 +70,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- Global Key Mappings
 		set("n", "<leader>r", vim.lsp.buf.rename, opts) -- Rename symbol
 		set("n", "K", vim.lsp.buf.signature_help, opts) -- Show signature information
+		set("n", "E", vim.lsp.buf.signature_help, opts) -- Show signature information
 		set("n", "gd", vim.lsp.buf.definition, opts) -- Go to definition
 		set("n", "gD", vim.lsp.buf.declaration, opts) -- Go to declaration
 		set("n", "gi", vim.lsp.buf.implementation, opts) -- Go to implementation
@@ -97,8 +98,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.diagnostic.setqflist,
 			{ desc = "Populate quickfix list with diagnostics", buffer = ev.buf }
 		)
-		set("n", "<C-g>n", vim.diagnostic.goto_next, { desc = "Go to next diagnostic", buffer = ev.buf })
-		set("n", "<C-g>p", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic", buffer = ev.buf })
+		set("n", "<C-g>[", vim.diagnostic.goto_next, { desc = "Go to next diagnostic", buffer = ev.buf })
+		set("n", "<C-g>]", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic", buffer = ev.buf })
 
 		-- User Commands
 		local usr_cmd = vim.api.nvim_create_user_command

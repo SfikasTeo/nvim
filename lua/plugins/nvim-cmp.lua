@@ -16,10 +16,11 @@ cmp.setup({
         ["<Tab>"] = cmp.mapping.confirm({ select = false }),
         ["<C-j>"] = cmp.mapping.select_next_item(),
         ["<C-k>"] = cmp.mapping.select_prev_item(),
+        ["<C-n>"] = cmp.mapping.select_next_item(),
+        ["<C-e>"] = cmp.mapping.select_prev_item(),
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-n>"] = cmp.mapping.complete(),
-        ["<C-e>"] = cmp.mapping.abort(),
+        ["<C-c>"] = cmp.mapping.abort(),
     }),
     sources = cmp.config.sources({
         { name = "nvim_lsp" },
@@ -42,6 +43,8 @@ cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline({
         ['<C-j>'] = { c = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }) },
         ['<C-k>'] = { c = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }) },
+        ['<C-n>'] = { c = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }) },
+        ['<C-e>'] = { c = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }) },
     }),
     sources = cmp.config.sources({
         { name = 'path' },
@@ -53,6 +56,8 @@ cmp.setup.cmdline('/', {
     mapping = cmp.mapping.preset.cmdline({
         ['<C-j>'] = { c = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }) },
         ['<C-k>'] = { c = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }) },
+        ['<C-n>'] = { c = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }) },
+        ['<C-e>'] = { c = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }) },
     }),
     sources = {
         { name = 'buffer' }
