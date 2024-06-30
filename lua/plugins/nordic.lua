@@ -1,5 +1,7 @@
 -- lua/plugins/nordic.lua
 
+local sidebar_bg = '#1a1a1a'
+
 require 'nordic' .setup {
     on_palette = function(palette)
         palette.black0 = '#101010'
@@ -21,8 +23,11 @@ require 'nordic' .setup {
     -- Override the styling of any highlight group.
     override = {
         Visual = { bg = '#424242' },
-        VisualNOS = { bg = '#424242'},
+        VisualNOS = { bg = '#424242' },
         CursorLine = { bg = '#161616' },
+        NvimTreeCursorLine = { bg = '#242424' },
+        NvimTreeNormal = { bg = sidebar_bg },
+        NvimTreeNormalNC = { bg = sidebar_bg },
     },
     cursorline = {
         bold = false,
