@@ -19,7 +19,7 @@ set("n", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
 -- Quality of life:
-set("n", "<leader>h", "<Cmd>noh<CR>", opts)
+set("n", "<leader>/", "<Cmd>noh<CR>", opts)
 set({ "n", "v", "o" }, "<C-c>", "<Esc>", opts)
 set({ "v", "o" }, "ii", "<Esc>", opts)
 set("i", "jj", "<Esc>", opts)
@@ -35,8 +35,6 @@ set({ "n", "v", "o" }, "<C-u>", "<C-u>zz", opts)
 set({ "n", "v", "o" }, "<C-d>", "<C-d>zz", opts)
 set({ "n", "v", "o" }, "<C-j>", "4j", opts)
 set({ "n", "v", "o" }, "<C-k>", "4k", opts)
-set({ "n", "v", "o" }, "W", "2W", opts)
-set({ "n", "v", "o" }, "B", "2B", opts)
 
 -- Cut with leader + key
 set({ "n", "v" }, "<leader>d", "d", opts)

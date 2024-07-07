@@ -23,6 +23,7 @@ require("nvim-treesitter.configs").setup({
 		"nix",
 		"python",
 		"rust",
+        "ron",
 		"zig",
 		-- Programming adjacent
 		"json",

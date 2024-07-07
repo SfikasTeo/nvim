@@ -1,15 +1,16 @@
 -- lua/plugins/plugins.lua
+local set = vim.keymap.set
 
 return {
-    {
-        'AlexvZyl/nordic.nvim',
-        lazy = false,
-        priority = 1000,
-        config = function()
-            require('plugins.nordic')
-        end
-    },
-    --
+	{
+		"AlexvZyl/nordic.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("plugins.nordic")
+		end,
+	},
+	--
 	-- Core Utilities
 	-- Telescope
 	{
@@ -89,7 +90,7 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			require("plugins.lspconfig")
+			require("plugins.lsp.init")
 		end,
 	},
 	-- none-ls
@@ -119,6 +120,15 @@ return {
 					"saadparwaiz1/cmp_luasnip",
 					-- Snipset Provider
 					"rafamadriz/friendly-snippets",
+				},
+			},
+			{
+				"Saecki/crates.nvim",
+				event = { "BufRead Cargo.toml" },
+				opts = {
+					completion = {
+						cmp = { enabled = true },
+					},
 				},
 			},
 		},
@@ -178,15 +188,8 @@ return {
 	},
 	--
 	-- Language Specific Plugins
-	-- Rust
-	{
-		"simrat39/rust-tools.nvim",
-		config = function()
-			require("plugins.rust-tools")
-		end,
-	},
-	--
-	-- Org Mode
+    --
+    -- Org Mode
 	-- Orgmode.nvim
 	{
 		"nvim-orgmode/orgmode",
@@ -204,15 +207,6 @@ return {
 			"nvim-orgmode/orgmode",
 		},
 	},
-	-- Org-roam
-	-- {
-	-- 	"chipsenkbeil/org-roam.nvim",
-	--     ft = { "org" },
-	-- 	dependencies = {
-	-- 		"nvim-orgmode/orgmode",
-	-- 	},
-	-- },
-	--
 	-- UI plugins
 	-- lua-line
 	{
@@ -248,3 +242,4 @@ return {
 		end,
 	},
 }
+

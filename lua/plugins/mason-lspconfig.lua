@@ -13,5 +13,6 @@ require("mason-lspconfig").setup({
 		"lua_ls",
 		"pylsp",
 		"rust_analyzer",
+        "codelldb",
 	},
 })

@@ -64,3 +64,4 @@ local function shellcheck_current_buffer()
 end
 
 vim.api.nvim_create_user_command("ShellCheck", shellcheck_current_buffer, {})
+

@@ -28,6 +28,7 @@ cmp.setup({
         { name = "orgmode" },
         { name = "buffer" },
         { name = "path" },
+        { name = "crates" },
     }),
     window = {
         completion = cmp.config.window.bordered({
