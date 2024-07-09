@@ -66,6 +66,7 @@ local function clearMappings()
     set({ "n", "v", "o" }, "<leader>k", "<leader>k", opts)
 
 	set({ "i" }, "nn", "nn", opts)
+    set("i", "jj", "<Esc>", opts)
 end
 
 local function layoutMapper(layout)
@@ -87,6 +88,7 @@ local function layoutMapper(layout)
 		set({ "n", "v", "o" }, "<leader>k", "<leader>n", opts)
 
 		set({ "i" }, "nn", "<esc>", opts)
+        set("i", "jj", "ee", opts)
 	elseif layout ~= "colemak" then
 		clearMappings()
 	end

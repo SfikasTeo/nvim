@@ -9,35 +9,6 @@ local set = vim.keymap.set
 local default_set = { noremap = true, silent = true }
 
 telescope.setup({
-	pickers = {
-		find_files = {
-			find_command = {
-				"rg",
-				"--files",
-				"--hidden",
-				"--glob",
-				"!**/.git/*",
-			},
-		},
-		diagnostics = {
-			layout_strategy = "vertical",
-		},
-        loclist = {
-            theme = "ivy",
-        },
-        quickfix = {
-            theme = "ivy",
-        },
-        commands = {
-            theme = "ivy",
-        },
-        marks = {
-            theme = "ivy",
-        },
-        current_buffer_fuzzy_find = {
-            theme = "dropdown",
-        },
-	},
 	defaults = {
 		layout_config = {
 			width = 0.9,
@@ -63,7 +34,7 @@ telescope.setup({
 		},
 		mappings = {
 			i = { -- insert_mode mappings
-				["<C-q>"] = actions.send_to_qflist,
+				["<leader>q"] = actions.send_to_qflist,
 				["<C-j>"] = actions.move_selection_next,
 				["<C-k>"] = actions.move_selection_previous,
 				["<C-n>"] = actions.move_selection_next,
@@ -71,11 +42,10 @@ telescope.setup({
 				["<C-w>v"] = actions.select_vertical,
 				["<C-w>s"] = actions.select_horizontal,
 				["<C-w>t"] = actions.select_tab,
-				["<C-w>o"] = actions.select_default,
 			},
 			n = { -- normal_mode mappings
+				["<leader>q"] = actions.send_to_qflist,
 				["<C-c>"] = actions.close,
-				["<C-q>"] = actions.send_to_qflist,
 				["<C-j>"] = actions.move_selection_next,
 				["<C-k>"] = actions.move_selection_previous,
 				["<C-n>"] = actions.move_selection_next,
@@ -83,8 +53,63 @@ telescope.setup({
 				["<C-w>v"] = actions.select_vertical,
 				["<C-w>s"] = actions.select_horizontal,
 				["<C-w>t"] = actions.select_tab,
-				["<C-w>o"] = actions.select_default,
 			},
+		},
+	},
+	pickers = {
+		find_files = {
+			find_command = {
+				"rg",
+				"--files",
+				"--hidden",
+				"--glob",
+				"!**/.git/*",
+			},
+		},
+		diagnostics = {
+			layout_strategy = "vertical",
+		},
+		loclist = {
+			theme = "dropdown",
+			layout_config = {
+				width = 0.8,
+			},
+		},
+		quickfix = {
+			theme = "dropdown",
+			layout_config = {
+				width = 0.8,
+			},
+		},
+		jumplist = {
+			theme = "dropdown",
+			layout_config = {
+				width = 0.8,
+			},
+		},
+		commands = {
+			theme = "ivy",
+		},
+		marks = {
+			theme = "ivy",
+		},
+		current_buffer_fuzzy_find = {
+			theme = "dropdown",
+			layout_config = {
+				width = 0.8,
+			},
+		},
+		lsp_incoming_calls = {
+			theme = "ivy",
+		},
+		lsp_outgoing_calls = {
+			theme = "ivy",
+		},
+        lsp_references = {
+            theme = "ivy",
+        },
+		highlights = {
+			theme = "ivy",
 		},
 	},
 	extensions = {
@@ -95,29 +120,22 @@ telescope.setup({
 })
 
 -- Set telescope specific keybindings
-
--- Vim pickers
-
--- f actions
-set("n", "<C-f>b", builtin.current_buffer_fuzzy_find, default_set)  -- Find in current buffer
-set("n", "<C-f>o", builtin.oldfiles, default_set)                   -- Find recently opened Files
-set("n", "<C-f>E", builtin.find_files, default_set)                 -- Find files in CWD
-set("n", "<C-f>G", builtin.live_grep, default_set)                  -- Grep inside files in CWD
-set("n", "<C-f>/", builtin.highlights, default_set)                 -- Find Highlights
-set("n", "<C-f>c", builtin.commands, default_set)                   -- Find available Commands
-set("n", "<C-f>R", builtin.registers, default_set)                  -- Find register contents
-set("n", "<C-f>l", builtin.loclist, default_set)                    -- List Location list
-set("n", "<C-f>j", builtin.jumplist, default_set)                   -- List Jump list
-set("n", "<C-f>q", builtin.quickfix, default_set)                   -- List Quickfix list
-set("n", "<C-f>m", builtin.marks, default_set)                      -- List Marks
-set("n", "<C-f>t", builtin.treesitter, default_set)                 -- Lists tree-sitter objects
-set("n", "<C-f>d", builtin.diagnostics, default_set)                -- List diagnostics/bugs
-set("n", "<C-f>a", vim.lsp.buf.code_action, default_set)            -- List code-actions
-
--- g actions
-set("n", "<C-g>i", builtin.lsp_incoming_calls, default_set)         -- Find symbol incoming calls
-set("n", "<C-g>o", builtin.lsp_outgoing_calls, default_set)         -- Find symbol outgoing calls
-set("n", "gr", builtin.lsp_references, default_set)                 -- Find symbol references
+set("n", "<C-f>b", builtin.current_buffer_fuzzy_find, default_set) -- Find in current buffer
+set("n", "<C-f>E", builtin.find_files, default_set) -- Find files in CWD
+set("n", "<C-f>G", builtin.live_grep, default_set) -- Grep inside files in CWD
+set("n", "<C-f>/", builtin.highlights, default_set) -- Find Highlights
+set("n", "<C-f>c", builtin.commands, default_set) -- Find available Commands
+set("n", "<C-f>R", builtin.registers, default_set) -- Find register contents
+set("n", "<C-f>l", builtin.loclist, default_set) -- List Location list
+set("n", "<C-f>j", builtin.jumplist, default_set) -- List Jump list
+set("n", "<C-f>q", builtin.quickfix, default_set) -- List Quickfix list
+set("n", "<C-f>m", builtin.marks, default_set) -- List Marks
+set("n", "<C-f>t", builtin.treesitter, default_set) -- Lists tree-sitter objects
+set("n", "<C-f>d", builtin.diagnostics, default_set) -- List diagnostics/bugs
+set("n", "<C-f>a", vim.lsp.buf.code_action, default_set) -- List code-actions
+set("n", "<C-f>i", builtin.lsp_incoming_calls, default_set) -- Find symbol incoming calls
+set("n", "<C-f>o", builtin.lsp_outgoing_calls, default_set) -- Find symbol outgoing calls
+set("n", "<C-f>r", builtin.lsp_references, default_set) -- Find symbol references
 
 -- Advanced Bindings
 
@@ -136,7 +154,7 @@ local function path_to_clipboard(prompt_bufnr)
 
 	-- Construct an absolute path
 	local path = cwd .. "/" .. selection.value
-    vim.notify("Copied to clipboard: " .. path)
+	vim.notify("Copied to clipboard: " .. path)
 	path = vim.fn.fnamemodify(path, ":p")
 
 	vim.fn.setreg("+", path)
@@ -148,13 +166,13 @@ local function select_theme(theme_name)
 		dropdown = themes.get_dropdown(),
 		cursor = themes.get_cursor(),
 		list = {
-            previewer = false,
-            sorting_strategy = "ascending",
+			previewer = false,
+			sorting_strategy = "ascending",
 			layout_config = {
 				prompt_position = "top",
 				anchor = "center",
-                width = 0.4,
-                height = 0.3,
+				width = 0.4,
+				height = 0.3,
 			},
 		},
 		default = {},
@@ -188,7 +206,7 @@ set("n", "<leader>.", function()
 end, default_set)
 
 set("n", "<C-f>.", function()
-	builtin.find_files(set_opts("ivy",  vim.fn.expand("%:p:h")))
+	builtin.find_files(set_opts("ivy", vim.fn.expand("%:p:h")))
 end, default_set)
 
 set("n", "<leader>,", function()
@@ -219,4 +237,3 @@ end, { desc = "Open Telescope Man Pages" })
 
 -- Load extensions
 telescope.load_extension("ui-select")
-

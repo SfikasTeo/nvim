@@ -1,5 +1,4 @@
 -- lua/plugins/plugins.lua
-local set = vim.keymap.set
 
 return {
 	{
@@ -155,15 +154,6 @@ return {
 	-- Github Copilot
 	{
 		"github/copilot.vim",
-	},
-	--
-	-- Remote Container support
-	--
-	{
-		"https://codeberg.org/esensar/nvim-dev-container",
-		config = function()
-			require("devcontainer").setup({})
-		end,
 	},
 	--
 	-- Git Integration

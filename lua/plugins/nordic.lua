@@ -7,7 +7,7 @@ require 'nordic' .setup {
         palette.black0 = '#101010'
         palette.black1 = '#141414'
         palette.black2 = '#161616'
-        palette.gray0 = '#1d1d1d'
+        palette.gray0 = '#1e1e1e'
         palette.gray1 = '#424242'
         palette.gray2 = '#525252'
         palette.gray3 = '#626262'
