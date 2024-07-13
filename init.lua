@@ -19,6 +19,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Load lua modules
+require("layouts")
 require("keymaps")
 require("options")
 require("automation")
