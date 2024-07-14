@@ -6,7 +6,7 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("plugins.nordic")
+			require("plugins.themes.nordic")
 		end,
 	},
 	--
@@ -59,7 +59,7 @@ return {
 	{
 		"echasnovski/mini.surround",
 		config = function()
-			require("mini.surround").setup()
+			require("plugins.mini-surround")
 		end,
 	},
 	-- Floating Terminal
@@ -75,14 +75,14 @@ return {
 	{
 		"williamboman/mason.nvim",
 		config = function()
-			require("plugins.mason")
+			require("plugins.lsp.mason")
 		end,
 	},
 	-- Mason LSP Config
 	{
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
-			require("plugins.mason-lspconfig")
+			require("plugins.lsp.mason-lspconfig")
 		end,
 	},
 	-- LSP Config
@@ -228,7 +228,7 @@ return {
 		"echasnovski/mini.indentscope",
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
-			require("plugins.mini-indentscope")
+			require("plugins.mini-indent")
 		end,
 	},
 }
