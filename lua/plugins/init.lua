@@ -6,7 +6,7 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("plugins.nordic")
+			require("plugins.themes.nordic")
 		end,
 	},
 	--
@@ -59,7 +59,7 @@ return {
 	{
 		"echasnovski/mini.surround",
 		config = function()
-			require("mini.surround").setup()
+			require("plugins.mini-surround")
 		end,
 	},
 	-- Floating Terminal
@@ -75,14 +75,14 @@ return {
 	{
 		"williamboman/mason.nvim",
 		config = function()
-			require("plugins.mason")
+			require("plugins.lsp.mason")
 		end,
 	},
 	-- Mason LSP Config
 	{
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
-			require("plugins.mason-lspconfig")
+			require("plugins.lsp.mason-lspconfig")
 		end,
 	},
 	-- LSP Config
@@ -178,8 +178,8 @@ return {
 	},
 	--
 	-- Language Specific Plugins
-    --
-    -- Org Mode
+	--
+	-- Org Mode
 	-- Orgmode.nvim
 	{
 		"nvim-orgmode/orgmode",
@@ -204,6 +204,8 @@ return {
 		"nvim-lualine/lualine.nvim",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
+			{ "yavorski/lsp-progress.nvim", config = true },
+			{ "yavorski/lualine-macro-recording.nvim", config = true },
 		},
 		config = function()
 			require("plugins.lualine")
@@ -217,19 +219,13 @@ return {
 			vim.o.timeout = true
 			vim.o.timeoutlen = 300
 		end,
-		opts = {
-			triggers_blacklist = {
-				i = { "i" },
-			},
-		},
 	},
 	-- Mini Indent Scope
 	{
 		"echasnovski/mini.indentscope",
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
-			require("plugins.mini-indentscope")
+			require("plugins.mini-indent")
 		end,
 	},
 }
-

@@ -2,6 +2,9 @@
 -- Lang-mappings for Colemak DHm
 ------------------------------------------------------------
 
+vim.g.layout = "colemak"
+--vim.g.layout = "qwerty"
+
 -- Set Custom Keymaps
 local set = vim.keymap.set
 local opts = { noremap = true, silent = true }
@@ -11,10 +14,10 @@ local colemak_langmap = {
 	{ "n", "j" },
 	{ "e", "k" },
 	{ "i", "l" },
-	{ "h", "e" },
+	{ "h", "i" },
 	{ "j", "n" },
 	{ "k", "m" },
-	{ "l", "i" },
+	{ "l", "e" },
 }
 
 local qwerty_langmap = {
@@ -60,22 +63,27 @@ local function generate_keymaps(mappings)
     end
 end
 
-vim.g.layout = "qwerty"
 
 local function toggle_layout()
     if vim.g.layout == "colemak" then
         vim.g.layout = "qwerty"
-        local langmap_string = generate_langmap(qwerty_langmap)
-        vim.opt.langmap = langmap_string
+        vim.opt.langmap = generate_langmap(qwerty_langmap)
         generate_keymaps(qwerty_mappings)
     else
         vim.g.layout = "colemak"
-        local langmap_string = generate_langmap(colemak_langmap)
-        vim.opt.langmap = langmap_string
+        vim.opt.langmap = generate_langmap(colemak_langmap)
         generate_keymaps(colemak_mappings)
     end
 end
 
 -- Command to toggle between layout
 vim.api.nvim_create_user_command("ToggleLayout", toggle_layout, {})
+
+-- Initialize state
+if vim.g.layout == "qwerty" then
+    generate_keymaps(qwerty_mappings)
+elseif vim.g.layout == "colemak" then
+    vim.opt.langmap = generate_langmap(colemak_langmap)
+    generate_keymaps(colemak_mappings)
+end
 

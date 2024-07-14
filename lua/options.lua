@@ -51,7 +51,7 @@ vim.opt.clipboard:append("unnamedplus")
 vim.opt.termguicolors = true
 vim.opt.concealcursor = 'nc'
 vim.opt.swapfile = false
-vim.opt.conceallevel = 2
+vim.opt.conceallevel = 0
 vim.opt.undofile = true
 vim.opt.hidden = false
 vim.opt.wrap = true

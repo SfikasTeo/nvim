@@ -19,11 +19,8 @@ vim.g.mapleader = " "
 
 set("n", "<leader>/", "<Cmd>noh<CR>", opts)
 set({ "n", "v", "o" }, "<C-c>", "<Esc>", opts)
-
--- Optimize escape sequences
+set({ "v", "o", "i" }, ",,", "<Esc>", opts)
 set({ "t" }, ",,", "<C-\\><C-n>", opts)
-set({ "v", "o" }, ",,", "<Esc>", opts)
-set("i", ",,", "<Esc>", opts)
 
 -- Delete without yanking
 set({ "n", "v" }, "d", '"_d', opts)

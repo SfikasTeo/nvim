@@ -5,7 +5,6 @@ require("mason-lspconfig").setup({
 
 	-- Install following LSPs:
 	ensure_installed = {
-		"asm_lsp",
 		"bashls",
 		"clangd",
 		"html",

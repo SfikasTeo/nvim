@@ -49,7 +49,7 @@ gitsigns.setup({
 		end
 
 		-- Hunk navigation
-		map("n", "<C-g>j", function()
+		map("n", "]g", function()
 			if vim.wo.diff then
 				return "]c"
 			end
@@ -59,7 +59,7 @@ gitsigns.setup({
 			return "<Ignore>"
 		end, { expr = true, desc = "Next Git Hunk" })
 
-		map("n", "<C-g>k", function()
+		map("n", "[g", function()
 			if vim.wo.diff then
 				return "[c"
 			end
@@ -69,36 +69,16 @@ gitsigns.setup({
 			return "<Ignore>"
 		end, { expr = true, desc = "Previous Git Hunk" })
 
-		map("n", "<C-g>n", function()
-			if vim.wo.diff then
-				return "]c"
-			end
-			vim.schedule(function()
-				gs.next_hunk()
-			end)
-			return "<Ignore>"
-		end, { expr = true, desc = "Next Git Hunk" })
-
-		map("n", "<C-g>e", function()
-			if vim.wo.diff then
-				return "[c"
-			end
-			vim.schedule(function()
-				gs.prev_hunk()
-			end)
-			return "<Ignore>"
-		end, { expr = true, desc = "Previous Git Hunk" })
-		--
 		-- Actions
-		map("n", "<C-g>r", gs.reset_hunk)
-		map("n", "<C-g>R", gs.reset_buffer)
-		map("n", "<C-g>s", gs.stage_hunk, { desc = "Stage Git Hunk" })
-		map("n", "<C-g>u", gs.undo_stage_hunk, { desc = "Undo Stage Git Hunk" })
-		map("n", "<C-g>p", gs.preview_hunk, { desc = "Preview Git Hunk" })
-		map("n", "<C-g>d", gs.diffthis, { desc = "Git Diff" })
-		map("n", "<C-g>b", gs.toggle_current_line_blame)
+		map("n", "<leader>gr", gs.reset_hunk)
+		map("n", "<leader>gR", gs.reset_buffer)
+		map("n", "<leader>gs", gs.stage_hunk, { desc = "Stage Git Hunk" })
+		map("n", "<leader>gu", gs.undo_stage_hunk, { desc = "Undo Stage Git Hunk" })
+		map("n", "<leader>gp", gs.preview_hunk, { desc = "Preview Git Hunk" })
+		map("n", "<leader>gd", gs.diffthis, { desc = "Git Diff" })
+		map("n", "<leader>gb", gs.toggle_current_line_blame)
 
-		map("n", "<C-g>D", function()
+		map("n", "<leader>gD", function()
 			gs.diffthis("~")
 		end, { desc = "Git Diff ~" })
 
