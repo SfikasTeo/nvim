@@ -120,22 +120,22 @@ telescope.setup({
 })
 
 -- Set telescope specific keybindings
-set("n", "<C-f>b", builtin.current_buffer_fuzzy_find, default_set) -- Find in current buffer
-set("n", "<C-f>E", builtin.find_files, default_set) -- Find files in CWD
-set("n", "<C-f>G", builtin.live_grep, default_set) -- Grep inside files in CWD
-set("n", "<C-f>/", builtin.highlights, default_set) -- Find Highlights
-set("n", "<C-f>c", builtin.commands, default_set) -- Find available Commands
-set("n", "<C-f>R", builtin.registers, default_set) -- Find register contents
-set("n", "<C-f>l", builtin.loclist, default_set) -- List Location list
-set("n", "<C-f>j", builtin.jumplist, default_set) -- List Jump list
-set("n", "<C-f>q", builtin.quickfix, default_set) -- List Quickfix list
-set("n", "<C-f>m", builtin.marks, default_set) -- List Marks
-set("n", "<C-f>t", builtin.treesitter, default_set) -- Lists tree-sitter objects
-set("n", "<C-f>d", builtin.diagnostics, default_set) -- List diagnostics/bugs
-set("n", "<C-f>a", vim.lsp.buf.code_action, default_set) -- List code-actions
-set("n", "<C-f>i", builtin.lsp_incoming_calls, default_set) -- Find symbol incoming calls
-set("n", "<C-f>o", builtin.lsp_outgoing_calls, default_set) -- Find symbol outgoing calls
-set("n", "<C-f>r", builtin.lsp_references, default_set) -- Find symbol references
+set("n", "<leader>fb", builtin.current_buffer_fuzzy_find, default_set) -- Find in current buffer
+set("n", "<leader>fE", builtin.find_files, default_set) -- Find files in CWD
+set("n", "<leader>fG", builtin.live_grep, default_set) -- Grep inside files in CWD
+set("n", "<leader>f/", builtin.highlights, default_set) -- Find Highlights
+set("n", "<leader>fc", builtin.commands, default_set) -- Find available Commands
+set("n", "<leader>fR", builtin.registers, default_set) -- Find register contents
+set("n", "<leader>fl", builtin.loclist, default_set) -- List Location list
+set("n", "<leader>fj", builtin.jumplist, default_set) -- List Jump list
+set("n", "<leader>fq", builtin.quickfix, default_set) -- List Quickfix list
+set("n", "<leader>fm", builtin.marks, default_set) -- List Marks
+set("n", "<leader>ft", builtin.treesitter, default_set) -- Lists tree-sitter objects
+set("n", "<leader>fd", builtin.diagnostics, default_set) -- List diagnostics/bugs
+set("n", "<leader>fa", vim.lsp.buf.code_action, default_set) -- List code-actions
+set("n", "<leader>fi", builtin.lsp_incoming_calls, default_set) -- Find symbol incoming calls
+set("n", "<leader>fo", builtin.lsp_outgoing_calls, default_set) -- Find symbol outgoing calls
+set("n", "<leader>fr", builtin.lsp_references, default_set) -- Find symbol references
 
 -- Advanced Bindings
 
@@ -194,19 +194,15 @@ local function set_opts(theme_name, cwd_path)
 end
 
 -- Usage of the modified function
-set("n", "<C-f>e", function()
+set("n", "<leader>fe", function()
 	builtin.find_files(set_opts())
 end, default_set)
-set("n", "<C-f>g", function()
+set("n", "<leader>fg", function()
 	builtin.live_grep(set_opts())
 end, default_set)
 
 set("n", "<leader>.", function()
 	builtin.find_files(set_opts("ivy"))
-end, default_set)
-
-set("n", "<C-f>.", function()
-	builtin.find_files(set_opts("ivy", vim.fn.expand("%:p:h")))
 end, default_set)
 
 set("n", "<leader>,", function()

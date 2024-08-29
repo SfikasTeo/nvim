@@ -43,3 +43,6 @@ set("n", "<c-w>-", "20<c-w>-", opts)
 set("n", "<c-w>+", "20<c-w>+", opts)
 set("n", "<c-w>>", "20<c-w>>", opts)
 
+-- misc
+set("n", "<leader>fp", ':lua print(vim.fn.expand("%:p"))<CR>', opts)
+

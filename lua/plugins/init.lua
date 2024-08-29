@@ -69,6 +69,13 @@ return {
 			require("plugins.floaty")
 		end,
 	},
+    -- multi-cursor
+    {
+        "brenton-leighton/multiple-cursors.nvim",
+        config = function()
+            require("plugins.multiple-cursors")
+        end,
+    },
 	--
 	-- LSPs - Formatters - Linters
 	-- Mason
