@@ -71,45 +71,33 @@ telescope.setup({
 		},
 		loclist = {
 			theme = "dropdown",
-			layout_config = {
-				width = 0.8,
-			},
 		},
 		quickfix = {
 			theme = "dropdown",
-			layout_config = {
-				width = 0.8,
-			},
 		},
 		jumplist = {
 			theme = "dropdown",
-			layout_config = {
-				width = 0.8,
-			},
 		},
 		commands = {
-			theme = "ivy",
+			theme = "dropdown",
 		},
 		marks = {
-			theme = "ivy",
+			theme = "dropdown",
 		},
 		current_buffer_fuzzy_find = {
 			theme = "dropdown",
-			layout_config = {
-				width = 0.8,
-			},
 		},
 		lsp_incoming_calls = {
-			theme = "ivy",
+			theme = "dropdown",
 		},
 		lsp_outgoing_calls = {
-			theme = "ivy",
+			theme = "dropdown",
 		},
         lsp_references = {
-            theme = "ivy",
+            theme = "dropdown",
         },
 		highlights = {
-			theme = "ivy",
+			theme = "dropdown",
 		},
 	},
 	extensions = {
