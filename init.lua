@@ -25,7 +25,7 @@ require("options")
 require("automation")
 
 -- Load plugins
-local plugins = require("plugins.init")
+local plugins = require("plugins.plugins")
 local opts = {}
 
 require("lazy").setup(plugins, opts)

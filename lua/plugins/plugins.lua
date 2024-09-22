@@ -69,14 +69,15 @@ return {
 			require("plugins.floaty")
 		end,
 	},
-    -- multi-cursor
+    --  Flash
     {
-        "brenton-leighton/multiple-cursors.nvim",
+        "folke/flash.nvim",
+        event = "VeryLazy",
         config = function()
-            require("plugins.multiple-cursors")
+            require("plugins.flash")
         end,
     },
-	--
+   	--
 	-- LSPs - Formatters - Linters
 	-- Mason
 	{
@@ -236,3 +237,4 @@ return {
 		end,
 	},
 }
+

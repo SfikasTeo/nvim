@@ -10,5 +10,5 @@ require("floaty").setup({
 })
 
 local set = vim.keymap.set
-set({ 'n', 't' }, '<C-t>', floaty.toggle, { silent = true })
+set({ 'n', 't' }, '<C-w>f', floaty.toggle, { silent = true })
 

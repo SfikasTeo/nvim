@@ -35,9 +35,10 @@ local on_attach = function(_, bufnr)
 end
 
 local servers = {
-	tsserver = {},
 	asm_lsp = {},
 	lua_ls = {},
+    gopls = {},
+	ts_ls = {},
 	html = {},
 	clangd = require("plugins.lsp.clangd"),
 	pylsp = require("plugins.lsp.pylsp"),

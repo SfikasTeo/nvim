@@ -8,9 +8,10 @@ require("mason-lspconfig").setup({
 		"bashls",
 		"clangd",
 		"html",
-		"tsserver",
+		"ts_ls",
 		"lua_ls",
 		"pylsp",
+        "gopls",
 		"rust_analyzer",
 	},
 })

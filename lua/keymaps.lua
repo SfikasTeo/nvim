@@ -13,36 +13,41 @@
 local set = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
--- Unmap Space & Set it as leader
-set("n", "<Space>", "<Nop>", opts)
+-- Leader key setup
+set("n", "<Space>", "<Nop>", opts, { desc = "" })
 vim.g.mapleader = " "
 
-set("n", "<leader>/", "<Cmd>noh<CR>", opts)
-set({ "n", "v", "o" }, "<C-c>", "<Esc>", opts)
-set({ "v", "o", "i" }, ",,", "<Esc>", opts)
-set({ "t" }, ",,", "<C-\\><C-n>", opts)
+-- Clear search highlights
+set("n", "<leader>/", "<Cmd>noh<CR>", opts, { desc = "Clear highlights" })
 
--- Delete without yanking
-set({ "n", "v" }, "d", '"_d', opts)
-set({ "n", "v" }, "x", '"_x', opts)
-set({ "n", "v" }, "D", '"_D', opts)
+-- Escape mappings
+set({ "n", "v", "o" }, "<C-c>", "<Esc>", opts, { desc = "Esc" })
+set({ "v", "o", "i" }, ",,", "<Esc>", opts, { desc = "Esc" })
+set("t", ",,", "<C-\\><C-n>", opts, { desc = "Term Esc" })
 
--- Add Navigating motions
-set({ "n", "v", "o" }, "gm", "%", opts)
-set({ "n", "v", "o" }, "<C-u>", "<C-u>zz", opts)
-set({ "n", "v", "o" }, "<C-d>", "<C-d>zz", opts)
+-- Delete w/o yanking
+set({ "n", "v" }, "d", '"_d', opts, { desc = "Del" })
+set({ "n", "v" }, "x", '"_x', opts, { desc = "Del char" })
+set({ "n", "v" }, "D", '"_D', opts, { desc = "Del line" })
 
--- cut with leader + key
-set({ "n", "v" }, "<leader>d", "d", opts)
-set({ "n", "v" }, "<leader>x", "x", opts)
-set({ "n", "v" }, "<leader>d", "d", opts)
+-- Cutting with leader key
+set({ "n", "v" }, "<leader>d", "d", opts, { desc = "Cut" })
+set({ "n", "v" }, "<leader>x", "x", opts, { desc = "Cut char" })
+set({ "n", "v" }, "<leader>D", 'D', opts, { desc = "Cut line" })
 
--- more aggressive window resizing
-set("n", "<c-w><", "20<c-w><", opts)
-set("n", "<c-w>-", "20<c-w>-", opts)
-set("n", "<c-w>+", "20<c-w>+", opts)
-set("n", "<c-w>>", "20<c-w>>", opts)
+-- Enhanced navigation
+set({ "n", "v", "o" }, "gm", "%", opts, { desc = "Match bracket" })
+set({ "n", "v", "o" }, "<C-u>", "<C-u>zz", opts, { desc = "Page up" })
+set({ "n", "v", "o" }, "<C-d>", "<C-d>zz", opts, { desc = "Page down" })
 
--- misc
-set("n", "<leader>fp", ':lua print(vim.fn.expand("%:p"))<CR>', opts)
+-- Window resizing
+set("n", "<c-w><", "20<c-w><", opts, { desc = "Inc width" })
+set("n", "<c-w>-", "20<c-w>-", opts, { desc = "Dec height" })
+set("n", "<c-w>+", "20<c-w>+", opts, { desc = "Inc height" })
+set("n", "<c-w>>", "20<c-w>>", opts, { desc = "Dec width" })
+
+-- Miscellaneous
+set("n", "<leader>fp", ':lua print(vim.fn.expand("%:p"))<CR>', opts, { desc = "Print file path" })
+set("n", "<leader>tv", ":vsplit | term<CR>", opts, { desc = "Term vertical split" })
+set("n", "<leader>ts", ":split | term<CR>", opts, { desc = "Term horizontal split" })
 

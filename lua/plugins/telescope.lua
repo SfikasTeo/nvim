@@ -109,7 +109,7 @@ telescope.setup({
 
 -- Set telescope specific keybindings
 set("n", "<leader>fb", builtin.current_buffer_fuzzy_find, default_set) -- Find in current buffer
-set("n", "<leader>fE", builtin.find_files, default_set) -- Find files in CWD
+set("n", "<leader>fF", builtin.find_files, default_set) -- Find files in CWD
 set("n", "<leader>fG", builtin.live_grep, default_set) -- Grep inside files in CWD
 set("n", "<leader>f/", builtin.highlights, default_set) -- Find Highlights
 set("n", "<leader>fc", builtin.commands, default_set) -- Find available Commands
@@ -182,7 +182,7 @@ local function set_opts(theme_name, cwd_path)
 end
 
 -- Usage of the modified function
-set("n", "<leader>fe", function()
+set("n", "<leader>ff", function()
 	builtin.find_files(set_opts())
 end, default_set)
 set("n", "<leader>fg", function()
