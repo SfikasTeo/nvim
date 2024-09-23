@@ -40,6 +40,7 @@ local servers = {
     gopls = {},
 	ts_ls = {},
 	html = {},
+    ocaml_ls = {},
 	clangd = require("plugins.lsp.clangd"),
 	pylsp = require("plugins.lsp.pylsp"),
 	taplo = require("plugins.lsp.taplo"),
