@@ -54,5 +54,6 @@ vim.opt.swapfile = false
 vim.opt.conceallevel = 0
 vim.opt.undofile = true
 vim.opt.hidden = false
+vim.opt.laststatus = 3
 vim.opt.wrap = true
 

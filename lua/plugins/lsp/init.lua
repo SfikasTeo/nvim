@@ -7,31 +7,27 @@ local on_attach = function(_, bufnr)
 
 	-- LSP Key mappings
 	set("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation", buffer = bufnr })
+	set("n", "gh", vim.lsp.buf.hover, { desc = "Hover documentation", buffer = bufnr })
+	set("n", "gH", vim.lsp.buf.signature_help, { desc = "Signature help", buffer = bufnr })
 	set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition", buffer = bufnr })
 	set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration", buffer = bufnr })
 	set("n", "gi", vim.lsp.buf.implementation, { desc = "Go to implementation", buffer = bufnr })
-	set("n", "gr", vim.lsp.buf.references, { desc = "Find references", buffer = bufnr })
-	set("n", "gs", vim.lsp.buf.signature_help, { desc = "Signature help", buffer = bufnr })
-	set("n", "gt", vim.lsp.buf.type_definition, { desc = "Go to type definition", buffer = bufnr })
-	set("n", "g0", vim.lsp.buf.document_symbol, { desc = "Document symbols", buffer = bufnr })
-	set("n", "gW", vim.lsp.buf.workspace_symbol, { desc = "Workspace symbols", buffer = bufnr })
-	set("n", "gR", vim.lsp.buf.rename, { desc = "Rename symbol", buffer = bufnr })
-	set("n", "gA", vim.lsp.buf.code_action, { desc = "Code actions", buffer = bufnr })
-	set("n", "gF", vim.lsp.buf.format, { desc = "Format document", buffer = bufnr })
+	set("n", "go", vim.lsp.buf.type_definition, { desc = "Go to type definition", buffer = bufnr })
 	set("n", "gI", vim.lsp.buf.incoming_calls, { desc = "Incoming calls", buffer = bufnr })
 	set("n", "gO", vim.lsp.buf.outgoing_calls, { desc = "Outgoing calls", buffer = bufnr })
 
-	-- Diagnostic Key mappings
-	set("n", "<leader>sd", vim.diagnostic.show, { desc = "Show diagnostics", buffer = bufnr })
-	set("n", "<leader>l", vim.diagnostic.setloclist, { desc = "Populate loclist with diagnostics", buffer = bufnr })
-	set("n", "<leader>q", vim.diagnostic.setqflist, { desc = "Populate quickfix with diagnostics", buffer = bufnr })
+	set("n", "gr", vim.lsp.buf.references, { desc = "Find references", buffer = bufnr })
+	set("n", "gs", vim.lsp.buf.document_symbol, { desc = "Document symbols", buffer = bufnr })
+	set("n", "gS", vim.lsp.buf.workspace_symbol, { desc = "Workspace symbols", buffer = bufnr })
+	set("n", "gR", vim.lsp.buf.rename, { desc = "Rename symbol", buffer = bufnr })
+	set("n", "gc", vim.lsp.buf.code_action, { desc = "Code actions", buffer = bufnr })
+	set("n", "g=", vim.lsp.buf.format, { desc = "Format document", buffer = bufnr })
+
+	set("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostics", buffer = bufnr })
+	set("n", "gL", vim.diagnostic.setloclist, { desc = "Send Diagnostics to Loclist", buffer = bufnr })
+	set("n", "gQ", vim.diagnostic.setqflist, { desc = "Send Diagnostics to Quickfix", buffer = bufnr })
 	set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic", buffer = bufnr })
 	set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic", buffer = bufnr })
-
-	-- Workspace Key mappings
-	set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, { desc = "Add workspace folder", buffer = bufnr })
-	set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, { desc = "Remove workspace folder", buffer = bufnr })
-	set("n", "<leader>wl", vim.lsp.buf.list_workspace_folders, { desc = "List workspace folders", buffer = bufnr })
 end
 
 local servers = {
@@ -40,10 +36,9 @@ local servers = {
     gopls = {},
 	ts_ls = {},
 	html = {},
-    ocaml_ls = {},
+    ocamllsp = {},
 	clangd = require("plugins.lsp.clangd"),
 	pylsp = require("plugins.lsp.pylsp"),
-	taplo = require("plugins.lsp.taplo"),
 	rust_analyzer = require("plugins.lsp.rust_analyzer"),
 }
 

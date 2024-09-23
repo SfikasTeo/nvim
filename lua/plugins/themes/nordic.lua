@@ -16,19 +16,23 @@ require 'nordic' .setup {
     end,
     bold_keywords = false,
     italic_comments = true,
-    transparent_bg = false,
+    transparent = {
+        bg = false,
+        float = false,
+    },
     bright_border = false,
     reduced_blue = true,
     swap_backgrounds = false,
     -- Override the styling of any highlight group.
-    override = {
-        Visual = { bg = '#424242' },
-        VisualNOS = { bg = '#424242' },
-        CursorLine = { bg = '#161616' },
-        NvimTreeCursorLine = { bg = '#242424' },
-        NvimTreeNormal = { bg = sidebar_bg },
-        NvimTreeNormalNC = { bg = sidebar_bg },
-    },
+    on_highlight = function(highlights, palette)
+        -- Overrides similar to what you did with `override`
+        highlights.Visual = { bg = '#424242' }
+        highlights.VisualNOS = { bg = '#424242' }
+        highlights.CursorLine = { bg = '#161616' }
+        highlights.NvimTreeCursorLine = { bg = '#242424' }
+        highlights.NvimTreeNormal = { bg = sidebar_bg }
+        highlights.NvimTreeNormalNC = { bg = sidebar_bg }
+    end,
     cursorline = {
         bold = false,
         bold_number = true,

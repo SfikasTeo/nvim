@@ -11,6 +11,15 @@ return {
 	},
 	--
 	-- Core Utilities
+	-- Which-key
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		init = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+		end,
+	},
 	-- Telescope
 	{
 		"nvim-telescope/telescope.nvim",
@@ -69,15 +78,15 @@ return {
 			require("plugins.floaty")
 		end,
 	},
-    --  Flash
-    {
-        "folke/flash.nvim",
-        event = "VeryLazy",
-        config = function()
-            require("plugins.flash")
-        end,
-    },
-   	--
+	--  Flash
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("plugins.flash")
+		end,
+	},
+	--
 	-- LSPs - Formatters - Linters
 	-- Mason
 	{
@@ -219,15 +228,6 @@ return {
 			require("plugins.lualine")
 		end,
 	},
-	-- Which-key
-	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		init = function()
-			vim.o.timeout = true
-			vim.o.timeoutlen = 300
-		end,
-	},
 	-- Mini Indent Scope
 	{
 		"echasnovski/mini.indentscope",
@@ -236,5 +236,33 @@ return {
 			require("plugins.mini-indent")
 		end,
 	},
+	--
+	-- AI Plugins
+	-- Avante
+	{
+		"yetone/avante.nvim",
+		event = "VeryLazy",
+		lazy = false,
+		version = false,
+		opts = {},
+		build = "make",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"stevearc/dressing.nvim",
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"zbirenbaum/copilot.lua",
+			{
+				"MeanderingProgrammer/render-markdown.nvim",
+				opts = {
+					file_types = { "markdown", "Avante" },
+				},
+				ft = { "markdown", "Avante" },
+			},
+		},
+		config = function()
+			require("plugins.avante")
+		end,
+	},
 }
-

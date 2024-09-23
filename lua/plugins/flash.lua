@@ -1,9 +1,9 @@
 -- lua/plugins/flash.lua
-local set = vim.keymap.set
 local flash = require("flash")
+local wk = require("which-key")
 
 require("flash").setup({
-    -- labels = "asdfghjklqwertyuiopzxcvbnm",
+	-- labels = "asdfghjklqwertyuiopzxcvbnm",
 	labels = "arstgmneiqwfpbjoluyzxcdvkh",
 	search = {
 		multi_window = true,
@@ -29,7 +29,7 @@ require("flash").setup({
 		history = false,
 		register = false,
 		nohlsearch = true,
-		autojump = true,
+		autojump = false,
 		inclusive = nil,
 		offset = nil,
 	},
@@ -79,8 +79,8 @@ require("flash").setup({
 		},
 		treesitter = {
 			-- labels = "abcdefghijklmnopqrstuvwxyz",
-	        labels = "arstgmneiqwfpbjoluyzxcdvkh",
-			jump = { pos = "range", autojump = true },
+			labels = "arstgmneiqwfpbjoluyzxcdvkh",
+			jump = { pos = "range", autojump = false },
 			search = { incremental = false },
 			label = { before = true, after = true, style = "inline" },
 			highlight = {
@@ -101,7 +101,7 @@ require("flash").setup({
 	-- options for the floating window that shows the prompt,
 	prompt = {
 		enabled = true,
-		prefix = { { " Flash", "FlashPromptIcon" } },
+		prefix = { { " Flash: ", "FlashPromptIcon" } },
 		win_config = {
 			relative = "editor",
 			width = 1, -- <=1: percentage of the editor width
@@ -117,15 +117,10 @@ require("flash").setup({
 	},
 })
 
-set({ "n", "x", "o" }, "<leader>st", function()
-    flash.jump()
-end, { desc = "Flash: Jump To" })
-
-set({ "n", "x", "o" }, "<leader>sf", function()
-    flash.treesitter()
-end, { desc = "Flash: Treesitter find" })
-
-set({ "n", "x", "o" }, "<leader>ss", function()
-    flash.treesitter_search()
-end, { desc = "Flash: Treesitter search" })
-
+wk.add({
+    mode = { "n", "x" },
+    { "<leader>f", group = "Flash" },
+    { "<leader>ft", function() flash.jump() end, desc = "flash: Hop To" },
+    { "<leader>fk", function() flash.treesitter() end, desc = "flash: Select TextObj" },
+    { "<leader>fK", function() flash.treesitter_search() end, desc = "flash: Search TextObj" },
+})

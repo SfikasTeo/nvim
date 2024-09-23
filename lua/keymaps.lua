@@ -36,7 +36,6 @@ set({ "n", "v" }, "<leader>x", "x", opts, { desc = "Cut char" })
 set({ "n", "v" }, "<leader>D", 'D', opts, { desc = "Cut line" })
 
 -- Enhanced navigation
-set({ "n", "v", "o" }, "gm", "%", opts, { desc = "Match bracket" })
 set({ "n", "v", "o" }, "<C-u>", "<C-u>zz", opts, { desc = "Page up" })
 set({ "n", "v", "o" }, "<C-d>", "<C-d>zz", opts, { desc = "Page down" })
 
